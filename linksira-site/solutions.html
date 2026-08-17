@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Solutions &amp; SaaS Platforms — Ejersa Tech &amp; Consult PLC</title>
+    <title>Products — Ejersa Tech &amp; Consult PLC</title>
     <meta name="description"
-        content="Explore Ejersa's digital platforms, including Utility Record for meter reporting, LinkSira for partner rewards, work matching, errand services, delivery and used goods marketplaces." />
+        content="Ejersa's digital ecosystem: Utility Record, work matching, errands, delivery, marketplace and rentals — one company, connected apps for Ethiopia." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Digital Solutions &amp; SaaS Platforms — Ejersa Tech &amp; Consult PLC" />
+    <meta property="og:title" content="Products — Ejersa Tech &amp; Consult PLC" />
     <meta property="og:description"
-        content="Explore Ejersa's digital platforms, including Utility Record for meter reporting, LinkSira for partner rewards, work matching, errand services, delivery and used goods marketplaces." />
+        content="Ejersa's digital ecosystem: Utility Record, work matching, errands, delivery, marketplace and rentals." />
     <meta property="og:site_name" content="Ejersa Tech & Consult PLC" />
     <meta name="twitter:card" content="summary" />
     <meta name="theme-color" content="#0b2118" />
@@ -22,113 +22,1273 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css">
-
     <style>
+        :root {
+            --forest-950: #0b2118;
+            --forest-800: #0f3d28;
+            --forest-600: #1c5c3a;
+            --leaf-500: #4d8f42;
+            --leaf-300: #8fbf7a;
+            --leaf-100: #e7f1e3;
+            --gold-600: #a86f22;
+            --gold-500: #c9852a;
+            --gold-300: #e3b876;
+            --cream-50: #faf8f2;
+            --paper: #ffffff;
+            --ink-900: #16241c;
+            --ink-700: #3a463e;
+            --ink-faint: #6d7a71;
+            --line: #e4e0d3;
+            --radius: 14px;
+            --radius-lg: 20px;
+            --shadow: 0 10px 30px -18px rgba(11, 33, 24, .35);
+            --shadow-card-hover: 0 22px 44px -20px rgba(11, 33, 24, .4);
+            --ease: cubic-bezier(.2, .7, .2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream-50);
+            color: var(--ink-900);
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            letter-spacing: -.01em;
+            color: var(--forest-950);
+            margin: 0;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: .02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--gold-500);
+            outline-offset: 3px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ============ header (shared) ============ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: var(--forest-950);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .announce-bar {
+            background: var(--forest-800);
+            color: rgba(250, 248, 242, .82);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .72rem;
+            letter-spacing: .04em;
+            text-align: center;
+            padding: 7px 12px;
+            border-bottom: 1px solid rgba(227, 184, 118, .18);
+        }
+
+        .announce-bar strong {
+            color: var(--gold-300);
+            font-weight: 600;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 96px;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--cream-50);
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            flex-shrink: 0;
+            background: linear-gradient(155deg, var(--gold-500), var(--gold-600));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px -6px rgba(201, 133, 42, .55);
+        }
+
+        .logo-mark svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--forest-950);
+        }
+
+        .logo .logo-word {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.08;
+        }
+
+        .logo .logo-word small {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .6rem;
+            letter-spacing: .14em;
+            color: var(--gold-300);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: rgba(250, 248, 242, .78);
+            font-size: .92rem;
+            font-weight: 500;
+            padding: 6px 2px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--cream-50);
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: var(--gold-300);
+        }
+
+        .nav-links a[aria-current="page"]::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            height: 2px;
+            background: var(--gold-500);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 999px;
+            font-size: .87rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost-on-dark {
+            color: var(--cream-50);
+            border-color: rgba(250, 248, 242, .35);
+        }
+
+        .btn-ghost-on-dark:hover {
+            border-color: var(--gold-300);
+            color: var(--gold-300);
+        }
+
+        .btn-gold,
+        .btn-primary {
+            background: var(--gold-500);
+            color: var(--forest-950);
+        }
+
+        .btn-gold:hover,
+        .btn-primary:hover {
+            background: var(--gold-300);
+            box-shadow: 0 10px 24px -10px rgba(201, 133, 42, .55);
+        }
+
+        .btn-outline {
+            border-color: rgba(227, 184, 118, .5);
+            color: var(--gold-300);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold-300);
+            background: rgba(227, 184, 118, .08);
+        }
+
+        .btn-sm {
+            padding: 8px 14px;
+            font-size: .8rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            padding: 8px;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--cream-50);
+            transition: transform .2s ease, opacity .2s ease;
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .mobile-panel {
+            display: none;
+            background: var(--forest-950);
+            border-top: 1px solid rgba(227, 184, 118, .18);
+            padding: 8px 0 22px;
+        }
+
+        .mobile-panel.open {
+            display: block;
+        }
+
+        .mobile-panel .wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-panel a {
+            color: rgba(250, 248, 242, .85);
+            font-size: .98rem;
+            font-weight: 500;
+            padding: 13px 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .mobile-panel .btn {
+            margin-top: 14px;
+            justify-content: center;
+        }
+
+        /* ============ page hero ============ */
+        .page-hero {
+            position: relative;
+            background: radial-gradient(120% 140% at 10% -10%, var(--forest-800) 0%, var(--forest-950) 55%);
+            color: var(--cream-50);
+            overflow: hidden;
+            padding: 76px 0 64px;
+        }
+
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(1px 1px at 20% 30%, rgba(227, 184, 118, .3) 1px, transparent 0), radial-gradient(1px 1px at 70% 65%, rgba(227, 184, 118, .2) 1px, transparent 0);
+            background-size: 180px 180px;
+            opacity: .5;
+            pointer-events: none;
+        }
+
+        .page-hero .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .72rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold-300);
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 22px;
+            height: 1px;
+            background: var(--gold-500);
+            display: inline-block;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2rem, 4vw, 2.9rem);
+            line-height: 1.1;
+            color: var(--cream-50);
+        }
+
+        .page-hero p {
+            margin-top: 16px;
+            font-size: 1.02rem;
+            line-height: 1.6;
+            color: rgba(250, 248, 242, .72);
+            max-width: 54ch;
+        }
+
+        /* icon strip - quick visual overview, low text */
+        .icon-strip {
+            display: flex;
+            gap: 10px;
+            margin-top: 34px;
+            flex-wrap: wrap;
+        }
+
+        .icon-strip a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(227, 184, 118, .22);
+            border-radius: 999px;
+            padding: 8px 14px 8px 8px;
+            font-size: .8rem;
+            color: rgba(250, 248, 242, .78);
+            transition: border-color .2s ease, background .2s ease, transform .2s ease;
+        }
+
+        .icon-strip a:hover {
+            border-color: var(--gold-300);
+            background: rgba(227, 184, 118, .1);
+            transform: translateY(-2px);
+        }
+
+        .icon-strip .ico {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gold-500);
+            color: var(--forest-950);
+            flex-shrink: 0;
+        }
+
+        .icon-strip .ico svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ============ app grid ============ */
+        .band-paper {
+            background: var(--cream-50);
+            padding: 80px 0;
+        }
+
+        .section-head {
+            max-width: 640px;
+            margin-bottom: 8px;
+        }
+
+        .section-head.center {
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .band-paper .eyebrow {
+            color: var(--gold-600);
+        }
+
+        .band-paper .eyebrow::before {
+            background: var(--gold-600);
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.5rem, 2.8vw, 2rem);
+            margin-top: 8px;
+        }
+
+        .section-head p {
+            color: var(--ink-700);
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .section-head.center p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
             margin-top: 44px;
         }
 
         .app-card {
+            position: relative;
             background: var(--paper);
             border: 1px solid var(--line);
             border-radius: var(--radius-lg);
-            padding: 16px;
-            text-align: center;
+            padding: 20px;
             transition: transform .2s var(--ease), box-shadow .2s var(--ease);
         }
 
         .app-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-card-hover);
         }
 
-        .app-card img {
-            border-radius: 24px;
-            margin-bottom: 12px;
-            height: 300px;
+        .app-card:hover .shot svg .art-float {
+            transform: translateY(-4px);
+        }
+
+        .app-card .shot {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 6/5;
+        }
+
+        .app-card .shot svg {
             width: 100%;
-            object-fit: cover;
-            box-shadow: 0 8px 20px -10px rgba(0, 0, 0, .2);
+            height: 100%;
+            display: block;
+        }
+
+        .app-card .shot svg .art-float {
+            transition: transform .35s var(--ease);
+        }
+
+        .app-card .status {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .62rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(11, 33, 24, .82);
+            color: var(--gold-300);
+            backdrop-filter: blur(2px);
+        }
+
+        .app-card .status.live::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--leaf-300);
+            margin-right: 6px;
+        }
+
+        .app-card .ico-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--forest-950);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -30px;
+            margin-left: 12px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 18px -8px rgba(11, 33, 24, .5);
+            border: 3px solid var(--paper);
+        }
+
+        .app-card .ico-badge svg {
+            width: 19px;
+            height: 19px;
+            stroke: var(--gold-300);
+        }
+
+        .app-card .body {
+            padding: 14px 6px 4px;
         }
 
         .app-card h3 {
-            font-size: 1rem;
-            margin-bottom: 4px;
+            font-size: 1.02rem;
+            margin-bottom: 5px;
         }
 
         .app-card p {
-            font-size: .86rem;
+            font-size: .85rem;
+            color: var(--ink-700);
+            line-height: 1.5;
+            margin: 0 0 12px;
+        }
+
+        .app-card .go {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--forest-800);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .app-card .go svg {
+            width: 13px;
+            height: 13px;
+            transition: transform .18s ease;
+        }
+
+        .app-card:hover .go svg {
+            transform: translateX(3px);
+        }
+
+        /* flagship strip */
+        .flagship-strip {
+            margin-top: 28px;
+            background: var(--forest-950);
+            border-radius: var(--radius-lg);
+            padding: 30px 30px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            color: var(--cream-50);
+            flex-wrap: wrap;
+        }
+
+        .flagship-strip .shot {
+            width: 220px;
+            flex-shrink: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 6/5;
+        }
+
+        .flagship-strip .shot svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        @media (max-width:620px) {
+            .flagship-strip .shot {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        .flagship-strip .txt {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .flagship-strip .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .66rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--gold-300);
+        }
+
+        .flagship-strip h3 {
+            color: var(--cream-50);
+            font-size: 1.3rem;
+            margin: 8px 0 6px;
+        }
+
+        .flagship-strip p {
+            color: rgba(250, 248, 242, .68);
+            font-size: .9rem;
+            line-height: 1.55;
             margin: 0;
+            max-width: 46ch;
+        }
+
+        /* final CTA */
+        .band-forest {
+            background: var(--forest-950);
+            color: var(--cream-50);
+            padding: 70px 0;
+        }
+
+        .cta-band {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cta-band h2 {
+            color: var(--cream-50);
+            font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+            max-width: 30ch;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ============ footer ============ */
+        footer.site-footer {
+            background: var(--forest-950);
+            color: rgba(250, 248, 242, .72);
+            padding: 64px 0 28px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr repeat(4, 1fr);
+            gap: 30px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-grid .logo {
+            color: var(--cream-50);
+            margin-bottom: 14px;
+        }
+
+        .footer-grid .tag {
+            font-size: .85rem;
+            line-height: 1.6;
+            color: rgba(250, 248, 242, .55);
+            max-width: 30ch;
+        }
+
+        .footer-col h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold-300);
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .footer-col a {
+            font-size: .87rem;
+            color: rgba(250, 248, 242, .72);
+        }
+
+        .footer-col a:hover {
+            color: var(--gold-300);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 22px;
+            font-size: .8rem;
+            color: rgba(250, 248, 242, .5);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--forest-950);
+            color: var(--gold-300);
+            border: 1px solid rgba(227, 184, 118, .35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease;
+            z-index: 55;
+        }
+
+        .to-top.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .to-top svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width:980px) {
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .app-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flagship-strip {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width:620px) {
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                padding: 56px 0 48px;
+            }
+
+            .band-paper,
+            .band-forest {
+                padding: 56px 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-band {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .flagship-strip {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
-
 </head>
 
 <body>
 
     <header class="site-header">
+        <div class="announce-bar">
+            <strong>New:</strong>&nbsp; Utility Record is live for electricity &amp; water meter reporting — <a
+                href="index.html#utility-record" style="color:var(--gold-300);text-decoration:underline;">see how it
+                works →</a>
+        </div>
         <div class="wrap nav">
             <a href="index.html" class="logo">
+                <span class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                    </svg>
+                </span>
                 <span class="logo-word">Ejersa<small>Tech &amp; Consult</small></span>
             </a>
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="solutions.html" aria-current="page">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="nav-cta"></div>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-ghost-on-dark btn-sm">Talk to us</a>
+                <a href="#ecosystem" class="btn btn-gold btn-sm">Get the App</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-panel" id="mobilePanel">
+            <div class="wrap">
+                <a href="index.html">Home</a>
+                <a href="solutions.html" aria-current="page">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-gold">Talk to Ejersa</a>
+            </div>
         </div>
     </header>
 
     <main>
 
+        <!-- HERO -->
         <section class="page-hero">
             <div class="wrap reveal">
-                <p class="eyebrow">Digital Solutions</p>
-                <h1>Building digital services around real-life needs.</h1>
-                <p>Ejersa develops and operates technology platforms designed to address everyday service, employment,
-                    mobility and marketplace challenges in Ethiopia.</p>
+                <p class="eyebrow">Products</p>
+                <h1>One ecosystem. Six everyday problems, solved.</h1>
+                <p>Utilities, work, errands, delivery, marketplace and rentals — built as one connected suite of
+                    apps for Ethiopia.</p>
+                <div class="icon-strip">
+                    <a href="#utility"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                            </svg></span>Utility Record</a>
+                    <a href="#work"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.3-4.3" />
+                            </svg></span>Work Matching</a>
+                    <a href="#errand"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 11l3 3L22 4" />
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                            </svg></span>Errands</a>
+                    <a href="#delivery"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="7" width="15" height="10" rx="1" />
+                                <path d="M16 10h4l3 3v4h-7z" />
+                                <circle cx="6" cy="19" r="2" />
+                                <circle cx="18" cy="19" r="2" />
+                            </svg></span>Delivery</a>
+                    <a href="#marketplace"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l1.5-5h15L21 9" />
+                                <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
+                                <path d="M9 13a3 3 0 0 0 6 0" />
+                            </svg></span>Marketplace</a>
+                    <a href="#rental"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="18" height="12" rx="2" />
+                                <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+                            </svg></span>Rental</a>
+                </div>
             </div>
         </section>
 
-        <section class="band-paper" id="ecosystem">
+        <!-- FLAGSHIP -->
+        <section class="band-paper" id="utility">
+            <div class="wrap">
+                <div class="flagship-strip reveal">
+                    <div class="shot" role="img"
+                        aria-label="Illustration of a digital electricity meter with a phone capturing the reading">
+                        <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="bgUtil" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#123c28" />
+                                    <stop offset="1" stop-color="#0b2118" />
+                                </linearGradient>
+                                <radialGradient id="glowUtil" cx="70%" cy="20%" r="65%">
+                                    <stop offset="0" stop-color="#e3b876" stop-opacity=".35" />
+                                    <stop offset="1" stop-color="#e3b876" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <rect width="400" height="340" fill="url(#bgUtil)" />
+                            <rect width="400" height="340" fill="url(#glowUtil)" />
+                            <circle cx="330" cy="55" r="2" fill="#e3b876" opacity=".6" />
+                            <circle cx="60" cy="270" r="2" fill="#e3b876" opacity=".4" />
+                            <circle cx="300" cy="290" r="1.6" fill="#e3b876" opacity=".5" />
+                            <!-- meter body -->
+                            <g class="art-float">
+                                <rect x="70" y="90" width="180" height="150" rx="16" fill="#0f3d28" stroke="#c9852a"
+                                    stroke-opacity=".5" />
+                                <rect x="90" y="112" width="140" height="54" rx="8" fill="#0b1a12" />
+                                <text x="160" y="146" text-anchor="middle" font-family="JetBrains Mono, monospace"
+                                    font-size="22" fill="#8fbf7a" letter-spacing="2">04821.6</text>
+                                <circle cx="160" cy="200" r="20" fill="none" stroke="#4d8f42" stroke-width="3" />
+                                <path d="M160 186 L160 200 L170 208" stroke="#e3b876" stroke-width="3"
+                                    stroke-linecap="round" fill="none" />
+                                <rect x="95" y="222" width="30" height="6" rx="3" fill="#1c5c3a" />
+                                <rect x="195" y="222" width="30" height="6" rx="3" fill="#1c5c3a" />
+                            </g>
+                            <!-- phone capturing -->
+                            <g transform="translate(232,150)">
+                                <rect x="0" y="0" width="88" height="132" rx="16" fill="#faf8f2" stroke="#e3b876"
+                                    stroke-width="2" />
+                                <rect x="10" y="14" width="68" height="88" rx="4" fill="#e7f1e3" />
+                                <rect x="18" y="24" width="52" height="30" rx="4" fill="#1c5c3a" />
+                                <rect x="18" y="60" width="36" height="6" rx="3" fill="#c9852a" />
+                                <rect x="18" y="72" width="52" height="6" rx="3" fill="#8fbf7a" opacity=".6" />
+                                <circle cx="44" cy="112" r="6" fill="none" stroke="#a86f22" stroke-width="2" />
+                            </g>
+                            <path d="M240 190 Q210 190 190 170" stroke="#e3b876" stroke-width="2" stroke-dasharray="4 5"
+                                fill="none" />
+                        </svg>
+                    </div>
+                    <div class="txt">
+                        <span class="tag mono">Flagship · Live</span>
+                        <h3>Utility Record</h3>
+                        <p>Capture and submit electricity &amp; water meter readings digitally — no center visit
+                            required. Also offered as SaaS to providers.</p>
+                    </div>
+                    <a href="index.html#utility-record" class="btn btn-primary btn-sm">Explore →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- APP GRID -->
+        <section class="band-paper" id="ecosystem" style="padding-top:0;">
             <div class="wrap">
                 <div class="section-head center reveal">
-                    <p class="eyebrow">Our Digital Ecosystem</p>
-                    <h2>A suite of connected platforms in development.</h2>
+                    <p class="eyebrow">The ecosystem</p>
+                    <h2>Five more apps, one account.</h2>
                 </div>
-                <div class="app-grid reveal">
-                    <div class="app-card">
-                        <img src="assets/platforms/used-goods.png" alt="Used goods marketplace app interface">
-                        <h3>Used Goods</h3>
-                        <p>Buy, sell &amp; discover</p>
+
+                <div class="app-grid">
+                    <div class="app-card reveal" id="work">
+                        <div class="shot" role="img"
+                            aria-label="Illustration of a technician being matched to a customer on a map">
+                            <svg viewBox="0 0 400 335" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgWork" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#f2ede0" />
+                                        <stop offset="1" stop-color="#e7f1e3" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="400" height="335" fill="url(#bgWork)" />
+                                <path d="M0 250 Q100 210 200 250 T400 250 V335 H0 Z" fill="#dcebd6" />
+                                <g class="art-float">
+                                    <circle cx="120" cy="150" r="46" fill="#0b2118" />
+                                    <circle cx="120" cy="150" r="46" fill="none" stroke="#c9852a" stroke-width="2"
+                                        stroke-dasharray="3 5" />
+                                    <path d="M120 130a14 14 0 1 1 -.1 0Z" fill="#e3b876" />
+                                    <path d="M96 176c4-16 40-16 48 0" fill="#e3b876" />
+                                </g>
+                                <path d="M150 150 Q210 110 270 150" stroke="#a86f22" stroke-width="2.5"
+                                    stroke-dasharray="6 6" fill="none" />
+                                <g transform="translate(270,150)">
+                                    <circle r="30" fill="#1c5c3a" />
+                                    <path d="M-10 -6h20l-4 20h-12z" fill="#faf8f2" />
+                                    <rect x="-3" y="-14" width="6" height="10" rx="2" fill="#faf8f2" />
+                                </g>
+                                <circle cx="270" cy="150" r="44" fill="none" stroke="#4d8f42" stroke-width="1.5"
+                                    opacity=".5" />
+                                <g transform="translate(230,235)">
+                                    <path
+                                        d="M0 30 C0 10 10 0 20 0 C30 0 40 10 40 30 C40 42 20 60 20 60 C20 60 0 42 0 30Z"
+                                        fill="#c9852a" />
+                                    <circle cx="20" cy="26" r="9" fill="#faf8f2" />
+                                </g>
+                            </svg>
+                            <span class="status live">Live</span>
+                        </div>
+                        <div class="ico-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.3-4.3" />
+                            </svg>
+                        </div>
+                        <div class="body">
+                            <h3>Work Matching</h3>
+                            <p>Find trusted technicians by skill, location and price.</p>
+                            <a href="#work" class="go">View app <svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14M13 5l7 7-7 7" />
+                                </svg></a>
+                        </div>
                     </div>
-                    <div class="app-card">
-                        <img src="assets/platforms/rental.png" alt="Car and property rental app interface">
-                        <h3>Rental</h3>
-                        <p>Search, schedule &amp; rent</p>
+
+                    <div class="app-card reveal" id="errand">
+                        <div class="shot" role="img"
+                            aria-label="Illustration of a document folder and an agent handling an errand">
+                            <svg viewBox="0 0 400 335" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgErrand" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#f2ede0" />
+                                        <stop offset="1" stop-color="#e7f1e3" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="400" height="335" fill="url(#bgErrand)" />
+                                <circle cx="330" cy="60" r="70" fill="#dcebd6" opacity=".6" />
+                                <g class="art-float">
+                                    <rect x="90" y="90" width="150" height="185" rx="10" fill="#faf8f2" stroke="#e4e0d3"
+                                        transform="rotate(-6 165 180)" />
+                                    <rect x="110" y="80" width="150" height="185" rx="10" fill="#0f3d28"
+                                        transform="rotate(3 185 170)" />
+                                    <rect x="130" y="108" width="90" height="8" rx="4" fill="#e3b876"
+                                        transform="rotate(3 175 112)" />
+                                    <rect x="130" y="128" width="110" height="6" rx="3" fill="#8fbf7a" opacity=".7"
+                                        transform="rotate(3 185 131)" />
+                                    <rect x="130" y="144" width="80" height="6" rx="3" fill="#8fbf7a" opacity=".5"
+                                        transform="rotate(3 170 147)" />
+                                    <circle cx="205" cy="205" r="26" fill="#c9852a" transform="rotate(3 205 205)" />
+                                    <path d="M193 205l8 8 16-16" stroke="#0b2118" stroke-width="4" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" transform="rotate(3 205 205)" />
+                                </g>
+                                <g transform="translate(70,235)">
+                                    <circle r="26" fill="#1c5c3a" />
+                                    <circle cy="-6" r="9" fill="#e3b876" />
+                                    <path d="M-14 20c2-14 26-14 28 0" fill="#e3b876" />
+                                </g>
+                            </svg>
+                            <span class="status">Building</span>
+                        </div>
+                        <div class="ico-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 11l3 3L22 4" />
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                            </svg>
+                        </div>
+                        <div class="body">
+                            <h3>Errand · Guday Asfeqami</h3>
+                            <p>Verified agents handle bureaucratic errands for you.</p>
+                            <a href="#errand" class="go">View app <svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14M13 5l7 7-7 7" />
+                                </svg></a>
+                        </div>
                     </div>
-                    <div class="app-card">
-                        <img src="assets/platforms/worker-errand.png" alt="Nearby worker and errand app interface">
-                        <h3>Local Services</h3>
-                        <p>Match, request &amp; assign</p>
+
+                    <div class="app-card reveal" id="delivery">
+                        <div class="shot" role="img"
+                            aria-label="Illustration of a delivery courier on a motorbike following a route">
+                            <svg viewBox="0 0 400 335" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgDeliv" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#123c28" />
+                                        <stop offset="1" stop-color="#0b2118" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="400" height="335" fill="url(#bgDeliv)" />
+                                <path d="M20 260 Q140 200 220 250 T380 220" stroke="#c9852a" stroke-width="3"
+                                    stroke-dasharray="2 10" stroke-linecap="round" fill="none" opacity=".8" />
+                                <circle cx="20" cy="260" r="6" fill="#e3b876" />
+                                <circle cx="380" cy="220" r="8" fill="none" stroke="#8fbf7a" stroke-width="2" />
+                                <path d="M374 220l4 4 8-8" stroke="#8fbf7a" stroke-width="2" fill="none"
+                                    stroke-linecap="round" />
+                                <g class="art-float" transform="translate(150,150)">
+                                    <ellipse cx="0" cy="95" rx="90" ry="10" fill="#0b1a12" />
+                                    <circle cx="-45" cy="80" r="26" fill="none" stroke="#e3b876" stroke-width="4" />
+                                    <circle cx="55" cy="80" r="26" fill="none" stroke="#e3b876" stroke-width="4" />
+                                    <path d="M-45 80 L-10 40 L40 40 L55 80" stroke="#faf8f2" stroke-width="5"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                    <rect x="10" y="0" width="46" height="40" rx="6" fill="#c9852a" />
+                                    <rect x="18" y="8" width="30" height="6" fill="#0b2118" opacity=".5" />
+                                    <rect x="18" y="18" width="20" height="6" fill="#0b2118" opacity=".3" />
+                                    <circle cx="-10" cy="40" r="9" fill="#faf8f2" />
+                                </g>
+                            </svg>
+                            <span class="status live">Live</span>
+                        </div>
+                        <div class="ico-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="7" width="15" height="10" rx="1" />
+                                <path d="M16 10h4l3 3v4h-7z" />
+                                <circle cx="6" cy="19" r="2" />
+                                <circle cx="18" cy="19" r="2" />
+                            </svg>
+                        </div>
+                        <div class="body">
+                            <h3>Delivery</h3>
+                            <p>Live tracking between shops, couriers and customers.</p>
+                            <a href="#delivery" class="go">View app <svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14M13 5l7 7-7 7" />
+                                </svg></a>
+                        </div>
                     </div>
-                    <div class="app-card">
-                        <img src="assets/platforms/delivery.png" alt="Intercity delivery app interface">
-                        <h3>Delivery</h3>
-                        <p>Send, track &amp; deliver</p>
+
+                    <div class="app-card reveal" id="marketplace">
+                        <div class="shot" role="img"
+                            aria-label="Illustration of a shopping bag and a grid of listed items">
+                            <svg viewBox="0 0 400 335" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgMkt" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#f2ede0" />
+                                        <stop offset="1" stop-color="#e7f1e3" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="400" height="335" fill="url(#bgMkt)" />
+                                <g transform="translate(40,45)">
+                                    <rect width="80" height="80" rx="10" fill="#faf8f2" stroke="#e4e0d3" />
+                                    <rect x="16" y="16" width="48" height="48" rx="6" fill="#8fbf7a" opacity=".5" />
+                                </g>
+                                <g transform="translate(130,45)">
+                                    <rect width="80" height="80" rx="10" fill="#0f3d28" />
+                                    <path d="M20 55 L36 30 L50 45 L60 25" stroke="#e3b876" stroke-width="3" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                                <g transform="translate(40,135)">
+                                    <rect width="80" height="80" rx="10" fill="#faf8f2" stroke="#e4e0d3" />
+                                    <circle cx="40" cy="40" r="22" fill="none" stroke="#c9852a" stroke-width="3" />
+                                </g>
+                                <g class="art-float" transform="translate(210,110)">
+                                    <path d="M20 30 L20 15 a25 25 0 0 1 50 0 L70 30" stroke="#1c5c3a" stroke-width="6"
+                                        fill="none" stroke-linecap="round" />
+                                    <rect x="0" y="30" width="90" height="90" rx="14" fill="#c9852a" />
+                                    <circle cx="45" cy="75" r="16" fill="#0b2118" />
+                                    <text x="45" y="81" text-anchor="middle" font-family="JetBrains Mono, monospace"
+                                        font-size="15" fill="#e3b876">%</text>
+                                </g>
+                            </svg>
+                            <span class="status">Building</span>
+                        </div>
+                        <div class="ico-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l1.5-5h15L21 9" />
+                                <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
+                                <path d="M9 13a3 3 0 0 0 6 0" />
+                            </svg>
+                        </div>
+                        <div class="body">
+                            <h3>Marketplace</h3>
+                            <p>Buy and sell used electronics, furniture and gear.</p>
+                            <a href="#marketplace" class="go">View app <svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14M13 5l7 7-7 7" />
+                                </svg></a>
+                        </div>
+                    </div>
+
+                    <div class="app-card reveal" id="rental">
+                        <div class="shot" role="img"
+                            aria-label="Illustration of a car key and a calendar for scheduling a rental">
+                            <svg viewBox="0 0 400 335" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgRent" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#123c28" />
+                                        <stop offset="1" stop-color="#0b2118" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="400" height="335" fill="url(#bgRent)" />
+                                <circle cx="70" cy="60" r="55" fill="#123c28" opacity=".6" />
+                                <g class="art-float" transform="translate(70,120)">
+                                    <ellipse cx="90" cy="130" rx="120" ry="12" fill="#0b1a12" />
+                                    <path d="M10 100 Q30 40 90 40 Q150 40 170 100 Z" fill="#e3b876" />
+                                    <rect x="0" y="90" width="180" height="46" rx="14" fill="#c9852a" />
+                                    <rect x="45" y="55" width="90" height="34" rx="8" fill="#0b2118" opacity=".35" />
+                                    <circle cx="35" cy="136" r="20" fill="#0b1a12" stroke="#faf8f2" stroke-width="4" />
+                                    <circle cx="145" cy="136" r="20" fill="#0b1a12" stroke="#faf8f2" stroke-width="4" />
+                                </g>
+                                <g transform="translate(260,60)">
+                                    <rect width="110" height="100" rx="12" fill="#faf8f2" />
+                                    <rect width="110" height="26" rx="12" fill="#4d8f42" />
+                                    <rect x="16" y="42" width="18" height="18" rx="3" fill="#e7f1e3" />
+                                    <rect x="46" y="42" width="18" height="18" rx="3" fill="#e7f1e3" />
+                                    <rect x="76" y="42" width="18" height="18" rx="3" fill="#c9852a" />
+                                    <rect x="16" y="70" width="18" height="18" rx="3" fill="#e7f1e3" />
+                                    <rect x="46" y="70" width="18" height="18" rx="3" fill="#e7f1e3" />
+                                    <rect x="76" y="70" width="18" height="18" rx="3" fill="#e7f1e3" />
+                                </g>
+                            </svg>
+                            <span class="status">Planned</span>
+                        </div>
+                        <div class="ico-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="7" width="18" height="12" rx="2" />
+                                <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+                            </svg>
+                        </div>
+                        <div class="body">
+                            <h3>Rental</h3>
+                            <p>Search, schedule and rent vehicles or property.</p>
+                            <a href="#rental" class="go">View app <svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14M13 5l7 7-7 7" />
+                                </svg></a>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-actions reveal" style="justify-content: center; margin-top: 20px;">
-                    <a href="#" class="btn btn-primary">Download Now</a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="band-forest">
+            <div class="wrap">
+                <div class="cta-band reveal">
+                    <h2>Want early access or a partnership?</h2>
+                    <div class="btn-row">
+                        <a href="contact.html" class="btn btn-primary">Talk to Ejersa</a>
+                        <a href="index.html" class="btn btn-outline">Back to Home</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -142,24 +1302,12 @@
                     <a href="index.html" class="logo">
                         <span class="logo-word">Ejersa<small>Tech &amp; Consult</small></span>
                     </a>
-                    <p class="tag">Technology. Intelligence. Solutions. Turning real-world problems into scalable
-                        digital solutions and actionable business intelligence.</p>
+                    <p class="tag">Technology. Intelligence. Solutions.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Solutions</h4>
                     <ul>
                         <li><a href="solutions.html#ecosystem">Digital Ecosystem</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="consulting.html#strategy">Business Strategy</a></li>
-                        <li><a href="consulting.html#development">Business Development</a></li>
-                        <li><a href="consulting.html#technology">Technology Consulting</a></li>
-                        <li><a href="research.html#market">Market Research</a></li>
-                        <li><a href="research.html#competitive">Competitive Intelligence</a></li>
-                        <li><a href="research.html#consumer">Consumer Insights</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -193,7 +1341,53 @@
         </svg>
     </button>
 
-    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        (function () {
+            var toggle = document.getElementById('navToggle');
+            var panel = document.getElementById('mobilePanel');
+            if (!toggle || !panel) return;
+            toggle.addEventListener('click', function () {
+                var isOpen = panel.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+            panel.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    panel.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                els.forEach(function (el) { el.classList.add('in'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        })();
+
+        (function () {
+            var btn = document.getElementById('to-top');
+            if (!btn) return;
+            window.addEventListener('scroll', function () {
+                btn.classList.toggle('show', window.scrollY > 480);
+            });
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
 
 </body>
 
