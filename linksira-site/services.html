@@ -410,36 +410,28 @@
             font-size: .95rem;
         }
 
-        /* service overview — icon tiles, minimal text */
+        /* service overview — inline capability strip, not a slide grid */
         .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 14px;
-            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 12px;
+            margin-top: 28px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--line);
         }
 
         .service-tile {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: var(--radius-lg);
-            padding: 20px 18px;
-            transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s ease;
-        }
-
-        .service-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-card-hover);
-            border-color: var(--gold-300);
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 0 0 14px;
         }
 
         .service-tile .ico {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: var(--forest-950);
+            width: 30px;
+            height: 30px;
+            border-radius: 9px;
+            background: var(--leaf-100);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -447,23 +439,17 @@
         }
 
         .service-tile .ico svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--gold-300);
+            width: 15px;
+            height: 15px;
+            stroke: var(--forest-800);
         }
 
         .service-tile h4 {
             font-family: 'Inter', sans-serif;
-            font-size: .95rem;
-            font-weight: 700;
-        }
-
-        .service-tile span {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .68rem;
-            letter-spacing: .04em;
-            color: var(--ink-faint);
-            text-transform: uppercase;
+            font-size: .87rem;
+            font-weight: 600;
+            color: var(--ink-900);
+            white-space: nowrap;
         }
 
         /* category cards — icon badge + one line + short tag chips (no sentence bullets) */
@@ -743,6 +729,12 @@
                 <p class="eyebrow">Services</p>
                 <h1>Strategy, tech, research and execution — under one roof.</h1>
                 <p>Eight things we do. Evidence in, results out.</p>
+                <div class="jump-row">
+                    <a href="#strategy-planning">Strategy</a>
+                    <a href="#technology">Technology</a>
+                    <a href="#research">Research</a>
+                    <a href="#people">Training &amp; Support</a>
+                </div>
             </div>
         </section>
 
@@ -761,7 +753,6 @@
                                 <path d="M15 9l-2 6-6 2 2-6 6-2Z" />
                             </svg></span>
                         <h4>Strategy Design</h4>
-                        <span>01</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -769,7 +760,6 @@
                                 <path d="M4 20V10M12 20V4M20 20v-7" />
                             </svg></span>
                         <h4>Data Strategy</h4>
-                        <span>02</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -779,7 +769,6 @@
                                 <path d="M9 13h6M9 17h6" />
                             </svg></span>
                         <h4>Business Plan</h4>
-                        <span>03</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -788,7 +777,6 @@
                                 <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
                             </svg></span>
                         <h4>Proposals</h4>
-                        <span>04</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -797,7 +785,6 @@
                                 <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
                             </svg></span>
                         <h4>Training</h4>
-                        <span>05</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -806,7 +793,6 @@
                                 <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3ZM3 19a2 2 0 0 0 2 2h1v-7H3Z" />
                             </svg></span>
                         <h4>Customer Service</h4>
-                        <span>06</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -817,7 +803,6 @@
                                 <path d="M3 21v-5h5" />
                             </svg></span>
                         <h4>Modernization</h4>
-                        <span>07</span>
                     </div>
                     <div class="service-tile reveal">
                         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -827,7 +812,254 @@
                                     d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" />
                             </svg></span>
                         <h4>Backend Automation</h4>
-                        <span>08</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STRATEGY & PLANNING -->
+        <section class="band-paper" id="strategy-planning">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Strategy &amp; Planning</p>
+                    <h2>Where to compete, and how to win.</h2>
+                </div>
+                <div class="cat-grid">
+                    <div class="cat-card reveal" id="strategy">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M15 9l-2 6-6 2 2-6 6-2Z" />
+                            </svg></div>
+                        <h3>Business &amp; Corporate Strategy</h3>
+                        <p class="lead">Where to focus and how to compete.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Corporate Strategy</span>
+                            <span class="tag-pill">Growth Strategy</span>
+                            <span class="tag-pill">Market Entry</span>
+                            <span class="tag-pill">Business Model</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal" id="development">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18" />
+                                <path d="M7 15l4-6 4 3 5-8" />
+                            </svg></div>
+                        <h3>Business Development</h3>
+                        <p class="lead">New partners, markets and revenue.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Partnerships</span>
+                            <span class="tag-pill">Market Expansion</span>
+                            <span class="tag-pill">Go-To-Market</span>
+                            <span class="tag-pill">Revenue Models</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 2h9l5 5v15H6z" />
+                                <path d="M15 2v5h5" />
+                                <path d="M9 13h6M9 17h6" />
+                            </svg></div>
+                        <h3>Business Planning &amp; Proposals</h3>
+                        <p class="lead">Plans and proposals built to fund.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Business Plans</span>
+                            <span class="tag-pill">Financial Models</span>
+                            <span class="tag-pill">Feasibility Studies</span>
+                            <span class="tag-pill">Funding Proposals</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNOLOGY & AUTOMATION -->
+        <section class="band-white" id="technology">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Technology &amp; Automation</p>
+                    <h2>Business needs, built into systems.</h2>
+                </div>
+                <div class="cat-grid">
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="14" rx="2" />
+                                <path d="M8 21h8M12 18v3" />
+                            </svg></div>
+                        <h3>Digital Transformation</h3>
+                        <p class="lead">From manual processes to digital product.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Digital Strategy</span>
+                            <span class="tag-pill">SaaS Models</span>
+                            <span class="tag-pill">Process Digitization</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m8 9-4 3 4 3M16 9l4 3-4 3M13 5l-2 14" />
+                            </svg></div>
+                        <h3>Software &amp; App Development</h3>
+                        <p class="lead">Web and mobile products, built and shipped.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Web &amp; Mobile</span>
+                            <span class="tag-pill">MVP Build</span>
+                            <span class="tag-pill">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" />
+                            </svg></div>
+                        <h3>Backend Automation</h3>
+                        <p class="lead">Less manual work, more systems doing it.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Workflow Automation</span>
+                            <span class="tag-pill">API Integration</span>
+                            <span class="tag-pill">Internal Tools</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+                                <path d="M21 3v5h-5" />
+                                <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+                                <path d="M3 21v-5h5" />
+                            </svg></div>
+                        <h3>Business Modernization</h3>
+                        <p class="lead">Legacy operations, brought up to date.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Legacy Systems</span>
+                            <span class="tag-pill">Paper-To-Digital</span>
+                            <span class="tag-pill">Cloud Migration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH & INTELLIGENCE -->
+        <section class="band-paper" id="research">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Research &amp; Intelligence</p>
+                    <h2>Information, turned into insight.</h2>
+                </div>
+                <div class="cat-grid">
+                    <div class="cat-card reveal" id="market">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="7" />
+                                <path d="M21 21l-4.3-4.3" />
+                            </svg></div>
+                        <h3>Market Research</h3>
+                        <p class="lead">Know your market before you move.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Market Sizing</span>
+                            <span class="tag-pill">Trends</span>
+                            <span class="tag-pill">Segmentation</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal" id="competitive">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg></div>
+                        <h3>Competitive Intelligence</h3>
+                        <p class="lead">Know competitors, anticipate change.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Benchmarking</span>
+                            <span class="tag-pill">Pricing Analysis</span>
+                            <span class="tag-pill">Positioning</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal" id="consumer">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z" />
+                            </svg></div>
+                        <h3>Consumer &amp; Customer Insights</h3>
+                        <p class="lead">What customers do, and why.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Behavior Studies</span>
+                            <span class="tag-pill">Satisfaction</span>
+                            <span class="tag-pill">Journey Mapping</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 20V10M12 20V4M20 20v-7" />
+                            </svg></div>
+                        <h3>Data Strategy &amp; BI</h3>
+                        <p class="lead">Raw data, turned into decisions.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Data Strategy</span>
+                            <span class="tag-pill">Dashboards</span>
+                            <span class="tag-pill">Analytics</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+                            </svg></div>
+                        <h3>Industry Intelligence</h3>
+                        <p class="lead">Reports on sectors and what's next.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Industry Reports</span>
+                            <span class="tag-pill">Landscape Briefs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAINING & CUSTOMER EXPERIENCE -->
+        <section class="band-white" id="people">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Training &amp; Customer Experience</p>
+                    <h2>The people side, built up too.</h2>
+                </div>
+                <div class="cat-grid">
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+                                <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
+                            </svg></div>
+                        <h3>Training &amp; Capacity Building</h3>
+                        <p class="lead">Skills that stick after we leave.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Team Workshops</span>
+                            <span class="tag-pill">Data Literacy</span>
+                            <span class="tag-pill">Systems Onboarding</span>
+                        </div>
+                    </div>
+                    <div class="cat-card reveal">
+                        <div class="ico-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                                <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3ZM3 19a2 2 0 0 0 2 2h1v-7H3Z" />
+                            </svg></div>
+                        <h3>Customer Service Design</h3>
+                        <p class="lead">Support built around your customers.</p>
+                        <div class="tag-row">
+                            <span class="tag-pill">Service Playbooks</span>
+                            <span class="tag-pill">Journey Design</span>
+                            <span class="tag-pill">Escalation Process</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -863,6 +1095,15 @@
                     <h4>Solutions</h4>
                     <ul>
                         <li><a href="solutions.html#ecosystem">Digital Ecosystem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#strategy-planning">Strategy &amp; Planning</a></li>
+                        <li><a href="services.html#technology">Technology &amp; Automation</a></li>
+                        <li><a href="services.html#research">Research &amp; Intelligence</a></li>
+                        <li><a href="services.html#people">Training &amp; Customer Service</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

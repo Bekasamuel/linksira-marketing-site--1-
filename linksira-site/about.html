@@ -495,6 +495,17 @@
                     </ul>
                 </div>
                 <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="consulting.html#strategy">Business Strategy</a></li>
+                        <li><a href="consulting.html#development">Business Development</a></li>
+                        <li><a href="consulting.html#technology">Technology Consulting</a></li>
+                        <li><a href="research.html#market">Market Research</a></li>
+                        <li><a href="research.html#competitive">Competitive Intelligence</a></li>
+                        <li><a href="research.html#consumer">Consumer Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="about.html">About Ejersa</a></li>
@@ -526,24 +537,6 @@
     </button>
 
     <script src="js/main.js"></script>
-    <script>
-        // Founder spotlight tabs — self-contained, no dependency on main.js
-        (function () {
-            var tabs = document.querySelectorAll('.fx-tab');
-            tabs.forEach(function (tab) {
-                tab.addEventListener('click', function () {
-                    tabs.forEach(function (t) {
-                        t.setAttribute('aria-selected', 'false');
-                        var panel = document.getElementById(t.getAttribute('aria-controls'));
-                        if (panel) panel.setAttribute('data-active', 'false');
-                    });
-                    tab.setAttribute('aria-selected', 'true');
-                    var activePanel = document.getElementById(tab.getAttribute('aria-controls'));
-                    if (activePanel) activePanel.setAttribute('data-active', 'true');
-                });
-            });
-        })();
-    </script>
 </body>
 
 </html>

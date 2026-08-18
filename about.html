@@ -23,6 +23,270 @@
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Founder spotlight: scoped styles, additive only, namespaced under .fx- so nothing in
+         css/style.css is overridden. Palette pulls from the site's existing forest/paper tones,
+         with a warm ochre accent standing in for Ejersa's Ethiopian coffee-and-gold identity
+         rather than a generic terracotta default. -->
+    <style>
+        :root {
+            --fx-forest: #0b2118;
+            --fx-forest-2: #123227;
+            --fx-paper: #f7f3ea;
+            --fx-ink: #16241d;
+            --fx-sage: #6b8570;
+            --fx-gold: #c89b3c;
+            --fx-gold-soft: #e4c883;
+            --fx-line: rgba(11, 33, 24, 0.12);
+        }
+
+        .fx-founder {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(240px, 340px) 1fr;
+            gap: clamp(28px, 5vw, 64px);
+            align-items: start;
+            background: var(--fx-paper);
+            border: 1px solid var(--fx-line);
+            border-radius: 22px;
+            padding: clamp(24px, 4vw, 48px);
+        }
+
+        @media (max-width: 760px) {
+            .fx-founder {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fx-photo-wrap {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 18px;
+            overflow: hidden;
+            background: var(--fx-forest);
+            isolation: isolate;
+        }
+
+        .fx-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(1.02);
+        }
+
+        .fx-photo-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(200, 155, 60, 0.55);
+            border-radius: 18px;
+            margin: 10px;
+            pointer-events: none;
+        }
+
+        .fx-photo-tag {
+            position: absolute;
+            left: 20px;
+            bottom: 18px;
+            z-index: 2;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--fx-paper);
+            background: rgba(11, 33, 24, 0.55);
+            border: 1px solid rgba(228, 200, 131, 0.5);
+            padding: 6px 10px;
+            border-radius: 999px;
+            backdrop-filter: blur(3px);
+        }
+
+        .fx-founder-body .fx-eyebrow {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--fx-gold);
+            margin: 0 0 10px;
+        }
+
+        .fx-founder-body h3 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(26px, 3vw, 34px);
+            margin: 0 0 4px;
+            color: var(--fx-ink);
+        }
+
+        .fx-title {
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            color: var(--fx-sage);
+            margin: 0 0 18px;
+            font-size: 15px;
+        }
+
+        .fx-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--fx-line);
+            margin-bottom: 18px;
+        }
+
+        .fx-tab {
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--fx-sage);
+            background: transparent;
+            border: none;
+            padding: 10px 4px;
+            margin-right: 18px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .fx-tab::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 2px;
+            background: var(--fx-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+
+        .fx-tab:hover {
+            color: var(--fx-ink);
+        }
+
+        .fx-tab[aria-selected="true"] {
+            color: var(--fx-ink);
+        }
+
+        .fx-tab[aria-selected="true"]::after {
+            transform: scaleX(1);
+        }
+
+        .fx-panels {
+            min-height: 132px;
+        }
+
+        .fx-panel {
+            display: none;
+            font-family: "Inter", sans-serif;
+            color: var(--fx-ink);
+            line-height: 1.65;
+            font-size: 15.5px;
+            animation: fxFade 0.35s ease;
+        }
+
+        .fx-panel[data-active="true"] {
+            display: block;
+        }
+
+        @keyframes fxFade {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fx-focus-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .fx-focus-tags li {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            color: var(--fx-forest);
+            background: #fff;
+            border: 1px solid var(--fx-line);
+            padding: 7px 12px;
+            border-radius: 999px;
+        }
+
+        .fx-connect-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .fx-connect-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            font-size: 14.5px;
+            color: var(--fx-forest);
+            background: #fff;
+            border: 1px solid var(--fx-line);
+            padding: 11px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+
+        .fx-connect-link:hover {
+            transform: translateY(-2px);
+            border-color: var(--fx-gold);
+            background: #fffdf7;
+        }
+
+        .fx-connect-link svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .fx-team-note {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px dashed var(--fx-line);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .fx-team-note p {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            color: var(--fx-sage);
+            font-size: 14.5px;
+            max-width: 46ch;
+        }
+
+        .fx-team-note a {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12.5px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--fx-forest);
+            text-decoration: none;
+            border-bottom: 1px solid var(--fx-gold);
+            padding-bottom: 2px;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 
 <body>
@@ -118,56 +382,78 @@
                     <p class="eyebrow">Our Team</p>
                     <h2>Meet the people behind Ejersa</h2>
                 </div>
-                <div class="team-grid">
-                    <div class="team-card reveal">
-                        <div class="team-avatar"><span>Avatar</span></div>
-                        <h3>Team Member Name</h3>
-                        <p class="team-title">Founder &amp; CEO</p>
-                        <p class="team-bio">A short bio about the team member, their experience, and their role in the
-                            company.</p>
-                        <div class="team-social">
-                            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg></a>
-                            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.23-2.06.087.621 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                </svg></a>
-                        </div>
+
+                <div class="fx-founder reveal">
+                    <div class="fx-photo-wrap">
+                        <img src="assets/team/samuel-tamiru.jpg"
+                            alt="Samuel Tamiru, Founder and CEO of Ejersa Tech & Consult PLC" loading="lazy" width="400"
+                            height="400" />
+                        <span class="fx-photo-tag">Addis Ababa, ET</span>
                     </div>
-                    <div class="team-card reveal">
-                        <div class="team-avatar"><span>Avatar</span></div>
-                        <h3>Team Member Name</h3>
-                        <p class="team-title">Head of Technology</p>
-                        <p class="team-bio">A short bio about the team member, their experience, and their role in the
-                            company.</p>
-                        <div class="team-social">
-                            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg></a>
-                            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.23-2.06.087.621 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                </svg></a>
+
+                    <div class="fx-founder-body">
+                        <p class="fx-eyebrow">Founder</p>
+                        <h3>Samuel Tamiru</h3>
+                        <p class="fx-title">Founder &amp; CEO, Ejersa Tech &amp; Consult PLC</p>
+
+                        <div class="fx-tabs" role="tablist" aria-label="Founder details">
+                            <button class="fx-tab" role="tab" id="fx-tab-bio" aria-controls="fx-panel-bio"
+                                aria-selected="true">Background</button>
+                            <button class="fx-tab" role="tab" id="fx-tab-focus" aria-controls="fx-panel-focus"
+                                aria-selected="false">Focus Areas</button>
+                            <button class="fx-tab" role="tab" id="fx-tab-connect" aria-controls="fx-panel-connect"
+                                aria-selected="false">Connect</button>
                         </div>
-                    </div>
-                    <div class="team-card reveal">
-                        <div class="team-avatar"><span>Avatar</span></div>
-                        <h3>Team Member Name</h3>
-                        <p class="team-title">Head of Research</p>
-                        <p class="team-bio">A short bio about the team member, their experience, and their role in the
-                            company.</p>
-                        <div class="team-social">
-                            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg></a>
-                            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.23-2.06.087.621 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                </svg></a>
+
+                        <div class="fx-panels">
+                            <div class="fx-panel" id="fx-panel-bio" role="tabpanel" aria-labelledby="fx-tab-bio"
+                                data-active="true">
+                                <p>Samuel founded Ejersa to bring together two disciplines he has spent his career
+                                    moving between: technology and business intelligence. His background spans senior
+                                    business intelligence and analysis work in the banking sector, university-level
+                                    lecturing, and advisory work across business, investment, and data strategy. That
+                                    mix shapes how Ejersa approaches every engagement — pairing rigorous, evidence-based
+                                    research with practical, buildable technology.</p>
+                            </div>
+                            <div class="fx-panel" id="fx-panel-focus" role="tabpanel" aria-labelledby="fx-tab-focus"
+                                data-active="false">
+                                <ul class="fx-focus-tags">
+                                    <li>Business Intelligence</li>
+                                    <li>Data-Driven Research</li>
+                                    <li>Investment Advisory</li>
+                                    <li>Business Strategy</li>
+                                    <li>Market &amp; Competitive Analysis</li>
+                                    <li>Applied Technology</li>
+                                </ul>
+                            </div>
+                            <div class="fx-panel" id="fx-panel-connect" role="tabpanel" aria-labelledby="fx-tab-connect"
+                                data-active="false">
+                                <div class="fx-connect-row">
+                                    <a class="fx-connect-link"
+                                        href="https://www.linkedin.com/in/samuel-tamiru-chamada-a0a53b275/"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path
+                                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                        </svg>
+                                        LinkedIn
+                                    </a>
+                                    <a class="fx-connect-link" href="mailto:samueltamiru47@gmail.com">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M4 4h16v16H4z" opacity="0" />
+                                            <path d="M22 6l-10 7L2 6" />
+                                            <path d="M2 6h20v12H2z" />
+                                        </svg>
+                                        samueltamiru47@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fx-team-note">
+                            <p>Ejersa is growing — more of the team will be introduced here as they join.</p>
+                            <a href="careers.html">See open roles →</a>
                         </div>
                     </div>
                 </div>
@@ -254,3 +540,7 @@
 </body>
 
 </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<
