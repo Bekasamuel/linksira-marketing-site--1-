@@ -370,9 +370,133 @@
         .hero-grid {
             position: relative;
             z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        /* phone mockup — hero visual */
+        .hero-phone {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mock {
+            position: relative;
+            width: 260px;
+        }
+
+        .phone-glow {
+            position: absolute;
+            inset: -30px;
+            background: radial-gradient(60% 60% at 50% 35%, rgba(227, 184, 118, .28), transparent 70%);
+            filter: blur(6px);
+            z-index: 0;
+        }
+
+        .phone-frame {
+            position: relative;
+            z-index: 1;
+            background: var(--forest-950);
+            border: 1px solid rgba(227, 184, 118, .35);
+            border-radius: 34px;
+            padding: 14px;
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .55);
+        }
+
+        .phone-notch {
+            width: 70px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(250, 248, 242, .18);
+            margin: 0 auto 12px;
+        }
+
+        .phone-screen {
+            background: var(--cream-50);
+            border-radius: 22px;
+            padding: 16px 14px 20px;
+            min-height: 380px;
+        }
+
+        .phone-app-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: .92rem;
+            color: var(--forest-950);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .phone-app-header .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-500);
+            flex-shrink: 0;
+        }
+
+        .phone-service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .phone-service-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 10px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: background .3s ease, border-color .3s ease;
+        }
+
+        .phone-service-item .psi-ico {
+            width: 30px;
+            height: 30px;
+            border-radius: 9px;
+            background: var(--leaf-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background .3s ease;
+        }
+
+        .phone-service-item .psi-ico svg {
+            width: 15px;
+            height: 15px;
+            stroke: var(--forest-800);
+            transition: stroke .3s ease;
+        }
+
+        .phone-service-item span {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--ink-900);
+        }
+
+        .phone-service-item.active {
+            background: var(--forest-950);
+            border-color: var(--gold-500);
+        }
+
+        .phone-service-item.active .psi-ico {
+            background: var(--gold-500);
+        }
+
+        .phone-service-item.active .psi-ico svg {
+            stroke: var(--forest-950);
+        }
+
+        .phone-service-item.active span {
+            color: var(--cream-50);
         }
 
         .eyebrow {
@@ -1009,11 +1133,29 @@
 
             .hero-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .hero-art {
-                max-width: 360px;
-                margin: 0 auto;
+            .hero-actions {
+                justify-content: center !important;
+            }
+
+            .hero-tri {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-phone {
+                order: -1;
+                margin-bottom: 8px;
+            }
+
+            .phone-mock {
+                width: 220px;
+            }
+
+            .phone-screen {
+                min-height: 320px;
             }
 
             .philosophy {
@@ -1132,10 +1274,73 @@
                 <div class="reveal">
                     <p class="eyebrow">Technology · Intelligence · Solutions</p>
                     <h1>Technology that solves real problems.</h1>
-                    <p class="hero-lede">Ejersa Tech &amp; Consult PLC combines technology, research, data and
-                        business thinking to develop digital platforms, SaaS solutions and strategic consulting for a
-                        changing Ethiopia — making services more accessible, businesses more competitive, and
-                        decisions more informed.</p>
+                    <p class="hero-lede">Digital platforms, SaaS tools and strategic consulting — built for a
+                        changing Ethiopia.</p>
+                    <div class="hero-actions" style="justify-content:flex-start;">
+                        <a href="solutions.html" class="btn btn-primary">Explore Products</a>
+                        <a href="contact.html" class="btn btn-ghost-on-dark">Talk to Ejersa</a>
+                    </div>
+                    <div class="hero-tri">
+                        <div><strong>6</strong><span>Apps, one account</span></div>
+                        <div><strong>SaaS +</strong><span>Consulting</span></div>
+                        <div><strong>Built for</strong><span>Ethiopia</span></div>
+                    </div>
+                </div>
+
+                <div class="hero-phone reveal">
+                    <div class="phone-mock">
+                        <div class="phone-glow"></div>
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="phone-app-header"><span class="dot"></span>Ejersa</div>
+                                <div class="phone-service-list" id="phoneServiceList">
+                                    <div class="phone-service-item active">
+                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                                            </svg></span>
+                                        <span>Utility Record</span>
+                                    </div>
+                                    <div class="phone-service-item">
+                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="11" cy="11" r="7" />
+                                                <path d="M21 21l-4.3-4.3" />
+                                            </svg></span>
+                                        <span>Work Matching</span>
+                                    </div>
+                                    <div class="phone-service-item">
+                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="1" y="7" width="15" height="10" rx="1" />
+                                                <path d="M16 10h4l3 3v4h-7z" />
+                                                <circle cx="6" cy="19" r="2" />
+                                                <circle cx="18" cy="19" r="2" />
+                                            </svg></span>
+                                        <span>Delivery</span>
+                                    </div>
+                                    <div class="phone-service-item">
+                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M3 9l1.5-5h15L21 9" />
+                                                <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
+                                                <path d="M9 13a3 3 0 0 0 6 0" />
+                                            </svg></span>
+                                        <span>Marketplace</span>
+                                    </div>
+                                    <div class="phone-service-item">
+                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 11l3 3L22 4" />
+                                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                            </svg></span>
+                                        <span>Errands</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1146,48 +1351,25 @@
                 <div class="section-head reveal">
                     <p class="eyebrow">Our philosophy</p>
                     <h2>We start with the problem, not the technology.</h2>
-                    <p>We study how people, businesses and institutions currently operate, identify inefficiencies and
-                        unmet needs, and transform those opportunities into digital products, data-driven solutions
-                        and business strategies.</p>
+                    <p>We study how people and businesses operate, then turn what's broken into digital products,
+                        data and strategy.</p>
                 </div>
                 <div class="philosophy">
                     <div class="phil-card reveal">
                         <div class="phil-num mono">01</div>
                         <h3>Digital Products &amp; SaaS</h3>
-                        <p>Technology platforms that solve practical operational and customer problems, built to be
-                            offered to organizations as scalable SaaS solutions.</p>
+                        <p>Platforms that solve real problems, built to scale as SaaS.</p>
                     </div>
                     <div class="phil-card reveal">
                         <div class="phil-num mono">02</div>
                         <h3>Business &amp; Technology Consulting</h3>
-                        <p>We help organizations understand markets, design strategies, develop businesses and
-                            improve technology-enabled operations.</p>
+                        <p>Strategy, market understanding and technology-enabled operations.</p>
                     </div>
                     <div class="phil-card reveal">
                         <div class="phil-num mono">03</div>
                         <h3>Research &amp; Intelligence</h3>
-                        <p>We transform market, consumer, competitor and industry data into insights that support
-                            better strategic decisions.</p>
+                        <p>Market and competitor data, turned into decisions.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2.5 PARTNERS -->
-        <section class="band-white">
-            <div class="wrap">
-                <div class="section-head center reveal">
-                    <h2 class="trusted-by-heading">Trusted by leading organizations</h2>
-                </div>
-                <div class="partner-logo-grid reveal">
-                    <div class="partner-logo-item"><img src="https://placehold.co/200x100/f0f0f0/6d7a71?text=EEU"
-                            alt="Ethiopian Electric Utility Logo"></div>
-                    <div class="partner-logo-item"><img
-                            src="https://placehold.co/200x100/f0f0f0/6d7a71?text=Ministry+of+Water+%26+Energy"
-                            alt="Ministry of Water and Energy Logo"></div>
-                    <div class="partner-logo-item"><img
-                            src="https://placehold.co/200x100/f0f0f0/6d7a71?text=Addis+Ababa+Water"
-                            alt="Addis Ababa Water Office Logo"></div>
                 </div>
             </div>
         </section>
@@ -1199,11 +1381,8 @@
                 <div class="flagship-grid">
                     <div class="reveal">
                         <h2>Utility Record — digitizing electricity and water meter reporting.</h2>
-                        <p>Customers can already pay electricity and water bills digitally through banks and mobile
-                            money — but meter reading and reporting often still requires a physical process. Utility
-                            Record closes that gap, letting customers register accounts, capture and submit meter
-                            readings, and keep a digital history — while providers receive structured, monitorable
-                            data.</p>
+                        <p>Bills are already paid digitally. Meter reporting isn't — yet. Utility Record closes that
+                            gap: customers submit readings from their phone, providers get structured data.</p>
 
                         <div class="flagship-feat">
                             <ul>
@@ -1275,8 +1454,7 @@
                 <div class="section-head reveal">
                     <p class="eyebrow">Digital platforms</p>
                     <h2>Building digital services around real-life needs</h2>
-                    <p>Beyond Utility Record, Ejersa develops and operates technology platforms designed to address
-                        everyday service, employment, mobility and marketplace challenges.</p>
+                    <p>Five more apps beyond Utility Record — one account, one ecosystem.</p>
                 </div>
                 <div class="platform-grid">
                     <div class="platform-card reveal">
@@ -1286,8 +1464,7 @@
                                 <path d="M21 21l-4.3-4.3" />
                             </svg></div>
                         <h3>Work &amp; Worker Matching</h3>
-                        <p>A marketplace connecting customers with technicians, tradespeople and service providers,
-                            matched by skill, location, availability and price.</p>
+                        <p>Find trusted technicians by skill, location and price.</p>
                         <span class="platform-tag">Discover the platform →</span>
                     </div>
                     <div class="platform-card reveal">
@@ -1297,8 +1474,7 @@
                                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                             </svg></div>
                         <h3>Errand / Guday Asfeqami</h3>
-                        <p>An agency model connecting customers with verified agents who handle eligible bureaucratic
-                            and administrative errands on their behalf.</p>
+                        <p>Verified agents handle bureaucratic errands for you.</p>
                         <span class="platform-tag">Explore errand services →</span>
                     </div>
                     <div class="platform-card reveal">
@@ -1310,8 +1486,7 @@
                                 <circle cx="18" cy="19" r="2" />
                             </svg></div>
                         <h3>Delivery</h3>
-                        <p>Connects customers, businesses and delivery agents through location-based matching, live
-                            status tracking and delivery history.</p>
+                        <p>Live tracking between shops, couriers and customers.</p>
                         <span class="platform-tag">Explore delivery →</span>
                     </div>
                     <div class="platform-card reveal">
@@ -1322,239 +1497,9 @@
                                 <path d="M9 13a3 3 0 0 0 6 0" />
                             </svg></div>
                         <h3>Used Goods Marketplace</h3>
-                        <p>A digital marketplace for people to list, discover, buy and sell used products — from
-                            electronics to furniture to business equipment.</p>
+                        <p>Buy and sell used electronics, furniture and gear.</p>
                         <span class="platform-tag">Explore marketplace →</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. CONSULTING / RESEARCH -->
-        <section class="band-white">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Strategy. Research. Technology.</p>
-                    <h2>Strategy Built on Evidence</h2>
-                    <p>Technology alone does not solve business problems. Ejersa combines market understanding, business
-                        analysis, technology and data to help organizations make better decisions and execute practical
-                        strategies.</p>
-                </div>
-
-                <div class="consult-grid">
-                    <div class="consult-card reveal" style="--card-accent:var(--leaf-500);">
-                        <h3>Business Strategy</h3>
-                        <p>We help organizations understand where they are, where the market is moving and where they
-                            should compete.</p>
-                        <ul>
-                            <li>Business strategy</li>
-                            <li>Corporate strategy</li>
-                            <li>Growth strategy</li>
-                            <li>Market entry strategy</li>
-                            <li>Competitive strategy</li>
-                            <li>Business model development</li>
-                            <li>Strategic planning</li>
-                            <li>Opportunity assessment</li>
-                        </ul>
-                    </div>
-                    <div class="consult-card reveal" style="--card-accent:var(--gold-500);">
-                        <h3>Business Development</h3>
-                        <p>We help organizations identify and develop opportunities for sustainable growth.</p>
-                        <ul>
-                            <li>Business opportunity identification</li>
-                            <li>Partnership development</li>
-                            <li>Market expansion</li>
-                            <li>Product opportunity assessment</li>
-                            <li>Business model design</li>
-                            <li>Go-to-market strategy</li>
-                            <li>Partnership strategy</li>
-                            <li>Revenue model development</li>
-                        </ul>
-                    </div>
-                    <div class="consult-card reveal" style="--card-accent:var(--forest-600);">
-                        <h3>Technology Consulting</h3>
-                        <p>We connect business requirements with practical technology solutions.</p>
-                        <ul>
-                            <li>Digital transformation assessment</li>
-                            <li>Digital product strategy</li>
-                            <li>SaaS business models</li>
-                            <li>Technology-enabled business design</li>
-                            <li>Digital customer journey analysis</li>
-                            <li>Process digitization</li>
-                            <li>Technology opportunity assessment</li>
-                            <li>Digital channel strategy</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="hero-actions" style="margin-top:36px;">
-                    <a href="contact.html" class="btn btn-ghost-dark">Talk to Ejersa about Consulting</a>
-                    <a href="consulting.html" class="btn btn-primary">Learn More About Consulting</a>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="band-paper">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Intelligence. Data. Insights.</p>
-                    <h2>Intelligence for Better Decisions</h2>
-                    <p>Businesses operate in environments shaped by competitors, customers, technology, regulation and
-                        rapidly changing markets. Ejersa provides research and intelligence services that transform
-                        information into decision-support insights.</p>
-                </div>
-
-                <div class="consult-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="consult-card reveal" style="--card-accent:var(--leaf-500);">
-                        <h3>Market Research</h3>
-                        <p>Understand your market before making major decisions. We study market size, customer needs,
-                            trends, and growth opportunities.</p>
-                    </div>
-                    <div class="consult-card reveal" style="--card-accent:var(--gold-500);">
-                        <h3>Competitive Intelligence</h3>
-                        <p>Know the market, understand competitors, and anticipate change by analyzing strategies,
-                            products, pricing, and positioning.</p>
-                    </div>
-                    <div class="consult-card reveal" style="--card-accent:var(--forest-600);">
-                        <h3>Consumer &amp; Customer Insights</h3>
-                        <p>Understand what customers do—and why. We research preferences, behaviors, satisfaction, pain
-                            points, and brand perception.</p>
-                    </div>
-                </div>
-                <div class="hero-actions" style="margin-top:36px;">
-                    <a href="insights.html" class="btn btn-ghost-dark">Explore Insights &amp; Publications</a>
-                    <a href="contact.html" class="btn btn-primary">Discuss Your Research Needs</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. HOW WE WORK -->
-        <section class="band-paper">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <p class="eyebrow">How we work</p>
-                    <h2>Discover → Frame → Research → Design → Build → Deploy → Measure</h2>
-                    <p>We believe the strongest solutions begin with understanding the problem.</p>
-                </div>
-                <div class="steps">
-                    <div class="step reveal">
-                        <div class="step-num">01 — Discover</div>
-                        <p>Understand the environment, customer, organization and problem.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">02 — Frame</div>
-                        <p>Define the real problem and identify its root causes.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">03 — Research</div>
-                        <p>Collect market, customer, competitor and operational evidence.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">04 — Design</div>
-                        <p>Develop the business model, service design or technology solution.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">05 — Build</div>
-                        <p>Develop and test practical digital products and platforms.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">06 — Deploy</div>
-                        <p>Launch solutions and support adoption.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">07 — Measure</div>
-                        <p>Monitor performance, learn from data and continuously improve.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. WHY EJERSA -->
-        <section class="band-white">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Why Ejersa</p>
-                    <h2>Technology with business understanding</h2>
-                    <p>We do not build technology simply because technology is available. We build it because there
-                        is a problem worth solving.</p>
-                </div>
-                <div class="why-grid">
-                    <div class="why-card reveal">
-                        <h3>Problem First</h3>
-                        <p>We start by understanding the actual problem.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <h3>Business + Technology</h3>
-                        <p>We combine business thinking with technology development.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <h3>Data Driven</h3>
-                        <p>We use research and data to support decisions.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <h3>Local Understanding</h3>
-                        <p>We design with the realities of the Ethiopian market in mind.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <h3>Scalable Thinking</h3>
-                        <p>Solutions designed to grow from individual users to institutions and cities.</p>
-                    </div>
-                    <div class="why-card reveal">
-                        <h3>Continuous Improvement</h3>
-                        <p>We treat products and strategies as systems that improve through learning.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. INSIGHTS -->
-        <section class="band-paper">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <p class="eyebrow">From Insights</p>
-                    <h2>Research. Intelligence. Analysis. Perspective.</h2>
-                </div>
-                <div class="blog-grid">
-                    <article class="blog-card reveal">
-                        <div class="blog-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 3v18h18" />
-                                <path d="M7 15l4-5 3 3 5-7" />
-                            </svg></div>
-                        <div class="blog-body">
-                            <p class="blog-meta mono">TECHNOLOGY · 6 MIN</p>
-                            <h3>Digital Utility Services in Ethiopia</h3>
-                            <p>How digital meter reporting can improve the customer utility journey.</p>
-                            <a href="insights.html" class="blog-readmore">Read the post →</a>
-                        </div>
-                    </article>
-                    <article class="blog-card reveal">
-                        <div class="blog-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="7" />
-                                <path d="M21 21l-4.3-4.3" />
-                            </svg></div>
-                        <div class="blog-body">
-                            <p class="blog-meta mono">MARKET INTELLIGENCE · 5 MIN</p>
-                            <h3>Workforce Platforms and the Future of Service Matching</h3>
-                            <p>How technology can connect skills, workers and customers more efficiently.</p>
-                            <a href="insights.html" class="blog-readmore">Read the post →</a>
-                        </div>
-                    </article>
-                    <article class="blog-card reveal">
-                        <div class="blog-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2l9 5-9 5-9-5 9-5z" />
-                                <path d="M3 12l9 5 9-5" />
-                                <path d="M3 17l9 5 9-5" />
-                            </svg></div>
-                        <div class="blog-body">
-                            <p class="blog-meta mono">BUSINESS STRATEGY · 4 MIN</p>
-                            <h3>From Market Data to Strategic Decisions</h3>
-                            <p>Building an intelligence-driven approach to business strategy.</p>
-                            <a href="insights.html" class="blog-readmore">Read the post →</a>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
@@ -1638,6 +1583,18 @@
 
     <script src="js/main.js"></script>
     <script>
+        // Hero phone mockup: auto-rotate which service is highlighted.
+        (function () {
+            var items = document.querySelectorAll('#phoneServiceList .phone-service-item');
+            if (!items.length) return;
+            var i = 0;
+            setInterval(function () {
+                items[i].classList.remove('active');
+                i = (i + 1) % items.length;
+                items[i].classList.add('active');
+            }, 2200);
+        })();
+
         // Services dropdown: open ONLY on click of "Services", not on hover.
         (function () {
             document.querySelectorAll('.has-dropdown').forEach(function (item) {
