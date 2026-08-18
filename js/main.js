@@ -109,3 +109,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+
+(function () {
+    var tabs = document.querySelectorAll('.fx-tab');
+    if (!tabs.length) return;
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            tabs.forEach(function (t) {
+                t.setAttribute('aria-selected', 'false');
+                var panel = document.getElementById(t.getAttribute('aria-controls'));
+                if (panel) panel.setAttribute('data-active', 'false');
+            });
+            tab.setAttribute('aria-selected', 'true');
+            var activePanel = document.getElementById(tab.getAttribute('aria-controls'));
+            if (activePanel) activePanel.setAttribute('data-active', 'true');
+        });
+    });
+})();
