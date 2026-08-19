@@ -4,43 +4,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejersa Tech &amp; Consult PLC — Technology. Intelligence. Solutions.</title>
+    <title>Ejersa App — Post a Task, a Verified Agent Handles It</title>
     <meta name="description"
-        content="Ejersa Tech & Consult PLC develops digital platforms, SaaS solutions, market intelligence and strategic consulting that turn everyday problems into scalable solutions." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ejersa Tech & Consult PLC — Technology. Intelligence. Solutions." />
-    <meta property="og:description"
-        content="Digital platforms, SaaS solutions, market intelligence and strategic business solutions for a changing Ethiopia." />
-    <meta property="og:site_name" content="Ejersa Tech & Consult PLC" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="theme-color" content="#0b2118" />
-    <link rel="canonical" href="https://ejersatech.et/" />
-    <link rel="icon" href="assets/logo/ejersa-logo.png" />
-    <link rel="apple-touch-icon" href="assets/logo/ejersa-logo.png" />
+        content="Worker Matching, Errand, Rental and Property — one app, run by verified local agents. Post a request and get matched in minutes." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <style>
         :root {
-            --forest-950: #0b2118;
-            --forest-800: #0f3d28;
-            --forest-600: #1c5c3a;
-            --leaf-500: #4d8f42;
-            --leaf-300: #8fbf7a;
-            --leaf-100: #e7f1e3;
-            --gold-600: #a86f22;
-            --gold-500: #c9852a;
-            --gold-300: #e3b876;
-            --cream-50: #faf8f2;
+            --navy-950: #0a2036;
+            --navy-800: #0f3358;
+            --navy-700: #14477c;
+            --blue-600: #1f6fb8;
+            --blue-400: #58a5e6;
+            --blue-100: #e8f2fc;
+            --orange-500: #e2432f;
+            --orange-400: #f0704f;
+            --orange-100: #fde9e5;
+            --green-500: #1fa971;
+            --green-100: #e3f7ee;
+            --amber-500: #e8a33d;
+            --cream-50: #f5f8fb;
             --paper: #ffffff;
-            --ink-900: #16241c;
-            --ink-700: #3a463e;
-            --ink-faint: #6d7a71;
-            --line: #e4e0d3;
-            --radius: 14px;
-            --shadow: 0 10px 30px -18px rgba(11, 33, 24, .35);
+            --ink-900: #0f1b28;
+            --ink-700: #4c5b6d;
+            --ink-faint: #8695a6;
+            --line: #e3e9f0;
+            --radius: 16px;
+            --shadow: 0 16px 40px -20px rgba(10, 32, 54, .35);
         }
 
         * {
@@ -53,7 +46,7 @@
 
         body {
             margin: 0;
-            background: var(--cream-50);
+            background: var(--paper);
             color: var(--ink-900);
             font-family: 'Inter', system-ui, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -62,17 +55,17 @@
         h1,
         h2,
         h3,
-        .font-display {
-            font-family: 'Fraunces', serif;
-            font-weight: 600;
+        .disp {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
             letter-spacing: -.01em;
-            color: var(--forest-950);
+            color: var(--navy-950);
             margin: 0;
         }
 
         .mono {
             font-family: 'JetBrains Mono', monospace;
-            letter-spacing: .02em;
+            letter-spacing: .03em;
         }
 
         a {
@@ -80,8 +73,8 @@
             text-decoration: none;
         }
 
-        img {
-            max-width: 100%;
+        img,
+        svg {
             display: block;
         }
 
@@ -92,7 +85,7 @@
         }
 
         :focus-visible {
-            outline: 2px solid var(--gold-500);
+            outline: 2px solid var(--orange-500);
             outline-offset: 3px;
         }
 
@@ -112,15 +105,15 @@
             position: sticky;
             top: 0;
             z-index: 40;
-            background: var(--forest-950);
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
         }
 
         .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 76px;
+            height: 78px;
             gap: 24px;
         }
 
@@ -128,208 +121,48 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--cream-50);
-            font-family: 'Fraunces', serif;
-            font-weight: 600;
-            font-size: 1.05rem;
         }
 
-        .logo img {
-            height: 38px;
-            width: 38px;
-            object-fit: contain;
-            border-radius: 6px;
-            flex-shrink: 0;
-            background: #fff;
-        }
-
-        .logo .logo-word {
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--navy-950);
             display: flex;
-            flex-direction: column;
-            line-height: 1.05;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .logo .logo-word small {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .58rem;
-            letter-spacing: .12em;
-            color: var(--gold-300);
-            text-transform: uppercase;
-            font-weight: 500;
+        .logo-mark svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--amber-500);
+        }
+
+        .logo-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 1.12rem;
+            color: var(--navy-950);
         }
 
         .nav-links {
             display: flex;
-            gap: 26px;
+            gap: 30px;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
         .nav-links a {
-            color: rgba(250, 248, 242, .78);
-            font-size: .9rem;
-            font-weight: 500;
-            padding: 6px 2px;
-            position: relative;
+            color: var(--ink-700);
+            font-size: .92rem;
+            font-weight: 600;
         }
 
         .nav-links a:hover {
-            color: var(--cream-50);
-        }
-
-        .nav-links a[aria-current="page"] {
-            color: var(--gold-300);
-        }
-
-        .nav-links a[aria-current="page"]::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -6px;
-            height: 2px;
-            background: var(--gold-500);
-        }
-
-        /* dropdown: click-to-open only (no hover) */
-        .has-dropdown {
-            position: relative;
-        }
-
-        .has-dropdown>a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font: inherit;
-        }
-
-        .has-dropdown>a::after {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-right: 1.5px solid currentColor;
-            border-bottom: 1.5px solid currentColor;
-            transform: translateY(-2px) rotate(45deg);
-            transition: transform .18s ease;
-            opacity: .7;
-        }
-
-        .has-dropdown.open>a::after {
-            transform: translateY(1px) rotate(225deg);
-        }
-
-        .dropdown {
-            list-style: none;
-            margin: 0;
-            padding: 10px 8px;
-            position: absolute;
-            top: calc(100% + 14px);
-            left: 50%;
-            transform: translateX(-50%) translateY(-6px);
-            min-width: 220px;
-            background: var(--forest-950);
-            border: 1px solid rgba(227, 184, 118, .25);
-            border-radius: 12px;
-            box-shadow: 0 18px 40px -14px rgba(0, 0, 0, .55);
-            display: block;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: opacity .16s ease, transform .16s ease, visibility .16s;
-            z-index: 50;
-        }
-
-        .has-dropdown.open .dropdown {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown li {
-            list-style: none;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 9px 12px;
-            border-radius: 8px;
-            font-size: .86rem;
-            white-space: nowrap;
-            color: rgba(250, 248, 242, .82);
-        }
-
-        .dropdown a:hover {
-            background: rgba(227, 184, 118, .1);
-            color: var(--gold-300);
-        }
-
-        .nav-cta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-size: .86rem;
-            font-weight: 600;
-            border: 1px solid transparent;
-            transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-ghost-on-dark {
-            color: var(--cream-50);
-            border-color: rgba(250, 248, 242, .35);
-        }
-
-        .btn-ghost-on-dark:hover {
-            border-color: var(--gold-300);
-            color: var(--gold-300);
-        }
-
-        .btn-gold,
-        .btn-primary {
-            background: var(--gold-500);
-            color: var(--forest-950);
-        }
-
-        .btn-gold:hover,
-        .btn-primary:hover {
-            background: var(--gold-300);
-        }
-
-        .btn-ghost-dark {
-            color: var(--forest-950);
-            border-color: var(--forest-950);
-        }
-
-        .btn-ghost-dark:hover {
-            background: var(--forest-950);
-            color: var(--cream-50);
-        }
-
-        .btn-outline {
-            border-color: rgba(227, 184, 118, .5);
-            color: var(--gold-300);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--gold-300);
-            background: rgba(227, 184, 118, .08);
+            color: var(--navy-950);
         }
 
         .nav-toggle {
@@ -345,167 +178,403 @@
             width: 22px;
             height: 2px;
             margin: 4px 0;
-            background: var(--cream-50);
+            background: var(--navy-950);
         }
 
-        /* hero */
-        .hero {
-            position: relative;
-            background: radial-gradient(120% 140% at 10% -10%, var(--forest-800) 0%, var(--forest-950) 55%);
-            color: var(--cream-50);
-            overflow: hidden;
-            padding: 92px 0 80px;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(1px 1px at 20% 30%, rgba(227, 184, 118, .3) 1px, transparent 0), radial-gradient(1px 1px at 70% 65%, rgba(227, 184, 118, .2) 1px, transparent 0);
-            background-size: 180px 180px;
-            opacity: .5;
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        /* phone mockup — hero visual */
-        .hero-phone {
-            display: flex;
-            justify-content: center;
-        }
-
-        .phone-mock {
-            position: relative;
-            width: 260px;
-        }
-
-        .phone-glow {
-            position: absolute;
-            inset: -30px;
-            background: radial-gradient(60% 60% at 50% 35%, rgba(227, 184, 118, .28), transparent 70%);
-            filter: blur(6px);
-            z-index: 0;
-        }
-
-        .phone-frame {
-            position: relative;
-            z-index: 1;
-            background: var(--forest-950);
-            border: 1px solid rgba(227, 184, 118, .35);
-            border-radius: 34px;
-            padding: 14px;
-            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .55);
-        }
-
-        .phone-notch {
-            width: 70px;
-            height: 6px;
-            border-radius: 999px;
-            background: rgba(250, 248, 242, .18);
-            margin: 0 auto 12px;
-        }
-
-        .phone-screen {
-            background: var(--cream-50);
-            border-radius: 22px;
-            padding: 16px 14px 20px;
-            min-height: 380px;
-        }
-
-        .phone-app-header {
-            display: flex;
+        .btn {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Fraunces', serif;
-            font-weight: 600;
-            font-size: .92rem;
-            color: var(--forest-950);
-            padding-bottom: 12px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid var(--line);
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-size: .88rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+            cursor: pointer;
         }
 
-        .phone-app-header .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--gold-500);
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-orange {
+            background: var(--orange-500);
+            color: #fff;
+            box-shadow: 0 10px 24px -10px rgba(226, 67, 47, .55);
+        }
+
+        .btn-orange:hover {
+            background: var(--orange-400);
+        }
+
+        .btn-outline-navy {
+            border-color: var(--navy-950);
+            color: var(--navy-950);
+        }
+
+        .btn-outline-navy:hover {
+            background: var(--navy-950);
+            color: #fff;
+        }
+
+        .btn-ghost-on-dark {
+            color: #fff;
+            border-color: rgba(255, 255, 255, .35);
+        }
+
+        .btn-ghost-on-dark:hover {
+            border-color: var(--amber-500);
+            color: var(--amber-500);
+        }
+
+        /* phone mockup */
+        .phone {
+            width: 250px;
             flex-shrink: 0;
         }
 
-        .phone-service-list {
+        .phone.sm {
+            width: 210px;
+        }
+
+        .phone-frame {
+            background: var(--navy-950);
+            border-radius: 32px;
+            padding: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .phone-notch {
+            width: 62px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .16);
+            margin: 0 auto 8px;
+        }
+
+        .phone-screen {
+            background: var(--paper);
+            border-radius: 22px;
+            overflow: hidden;
+            min-height: 460px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone.sm .phone-screen {
+            min-height: 400px;
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px 2px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .64rem;
+            color: var(--ink-900);
+        }
+
+        .status-icons {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .status-icons svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .screen-body {
+            padding: 12px 14px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .app-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .app-header-row .greet {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: .92rem;
+            color: var(--navy-950);
+        }
+
+        .app-header-row .sub {
+            font-size: .64rem;
+            color: var(--ink-faint);
+            margin-top: 2px;
+        }
+
+        .icon-btn {
+            width: 27px;
+            height: 27px;
+            border-radius: 9px;
+            background: var(--cream-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn svg {
+            width: 13px;
+            height: 13px;
+            stroke: var(--ink-700);
+        }
+
+        .promo-banner {
+            border-radius: 13px;
+            padding: 13px 15px;
+            background: var(--green-500);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner strong {
+            display: block;
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
+        .promo-banner span {
+            font-size: .66rem;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        .promo-btn {
+            display: inline-block;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, .22);
+            color: #fff;
+            font-size: .64rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .tile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .tile {
+            border-radius: 13px;
+            padding: 12px 10px;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .phone-service-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 10px;
-            border-radius: 12px;
-            border: 1px solid transparent;
-            transition: background .3s ease, border-color .3s ease;
-        }
-
-        .phone-service-item .psi-ico {
-            width: 30px;
-            height: 30px;
+        .tile .t-ico {
+            width: 27px;
+            height: 27px;
             border-radius: 9px;
-            background: var(--leaf-100);
+            background: rgba(255, 255, 255, .55);
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .tile .t-ico svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .tile span {
+            font-size: .68rem;
+            font-weight: 700;
+        }
+
+        .tile.blue {
+            background: var(--blue-100);
+            color: #0e4d80;
+        }
+
+        .tile.orange {
+            background: var(--orange-100);
+            color: #97281a;
+        }
+
+        .tile.green {
+            background: var(--green-100);
+            color: #0e6b46;
+        }
+
+        .tile.amber {
+            background: #fbf0dc;
+            color: #7a520f;
+        }
+
+        .amt-card {
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 12px 14px;
+        }
+
+        .amt-card .lbl {
+            font-size: .62rem;
+            color: var(--ink-faint);
+            margin-bottom: 6px;
+        }
+
+        .amt-card .amt {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--navy-950);
+        }
+
+        .amt-quick {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .amt-quick span {
+            font-size: .6rem;
+            padding: 5px 9px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            color: var(--ink-700);
+        }
+
+        .amt-quick span.active {
+            background: var(--navy-950);
+            color: #fff;
+            border-color: var(--navy-950);
+        }
+
+        .agent-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 10px;
+        }
+
+        .agent-row .av {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--amber-500);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: .78rem;
             flex-shrink: 0;
-            transition: background .3s ease;
         }
 
-        .phone-service-item .psi-ico svg {
-            width: 15px;
-            height: 15px;
-            stroke: var(--forest-800);
-            transition: stroke .3s ease;
+        .agent-row .t {
+            font-size: .74rem;
+            font-weight: 700;
+            color: var(--navy-950);
         }
 
-        .phone-service-item span {
-            font-size: .82rem;
-            font-weight: 600;
-            color: var(--ink-900);
+        .agent-row .s {
+            font-size: .62rem;
+            color: var(--ink-faint);
+            margin-top: 2px;
         }
 
-        .phone-service-item.active {
-            background: var(--forest-950);
-            border-color: var(--gold-500);
+        .cta-block {
+            background: var(--orange-500);
+            color: #fff;
+            border-radius: 999px;
+            padding: 12px;
+            text-align: center;
+            font-size: .78rem;
+            font-weight: 700;
         }
 
-        .phone-service-item.active .psi-ico {
-            background: var(--gold-500);
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 6px;
+            border-top: 1px solid var(--line);
         }
 
-        .phone-service-item.active .psi-ico svg {
-            stroke: var(--forest-950);
+        .bottom-nav svg {
+            width: 17px;
+            height: 17px;
+            stroke: var(--ink-faint);
         }
 
-        .phone-service-item.active span {
-            color: var(--cream-50);
+        .bottom-nav .active svg {
+            stroke: var(--navy-950);
+        }
+
+        .status-list .row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .7rem;
+            color: var(--ink-700);
+            padding: 5px 0;
+        }
+
+        .status-list .row.done svg {
+            stroke: var(--green-500);
+        }
+
+        .status-list .row.pending {
+            color: var(--ink-faint);
+        }
+
+        .status-list .row svg {
+            width: 13px;
+            height: 13px;
+            stroke: var(--line);
+            flex-shrink: 0;
+        }
+
+        /* HERO / promo section (image 1 style) */
+        .hero-promo {
+            position: relative;
+            background: radial-gradient(120% 140% at 12% -10%, var(--navy-700), var(--navy-950) 60%);
+            color: #fff;
+            overflow: hidden;
+            padding: 76px 0;
+        }
+
+        .hero-promo::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(1px 1px at 20% 30%, rgba(232, 163, 61, .35) 1px, transparent 0), radial-gradient(1px 1px at 75% 65%, rgba(232, 163, 61, .22) 1px, transparent 0);
+            background-size: 170px 170px;
+            opacity: .6;
+        }
+
+        .hero-promo-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 50px;
+            align-items: center;
         }
 
         .eyebrow {
             font-family: 'JetBrains Mono', monospace;
-            font-size: .72rem;
-            letter-spacing: .16em;
+            font-size: .7rem;
+            letter-spacing: .14em;
             text-transform: uppercase;
-            color: var(--gold-300);
-            margin: 0 0 18px;
+            color: var(--amber-500);
+            margin: 0 0 16px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -513,69 +582,109 @@
 
         .eyebrow::before {
             content: "";
-            width: 22px;
+            width: 20px;
             height: 1px;
-            background: var(--gold-500);
+            background: var(--amber-500);
             display: inline-block;
         }
 
-        .hero h1 {
-            font-size: clamp(2.2rem, 4.6vw, 3.3rem);
-            line-height: 1.1;
-            color: var(--cream-50);
+        .hero-promo h1 {
+            font-size: clamp(2rem, 4vw, 2.9rem);
+            line-height: 1.14;
+            color: #fff;
         }
 
-        .hero-lede {
-            margin-top: 20px;
-            font-size: 1.08rem;
+        .hero-promo p.lede {
+            margin-top: 18px;
+            font-size: 1.02rem;
             line-height: 1.65;
-            color: rgba(250, 248, 242, .75);
-            max-width: 52ch;
+            color: rgba(255, 255, 255, .72);
+            max-width: 48ch;
         }
 
-        .hero-actions {
+        .store-row {
             display: flex;
-            gap: 12px;
-            margin-top: 30px;
-            justify-content: center;
+            gap: 10px;
+            margin-top: 28px;
             flex-wrap: wrap;
         }
 
-        .hero-tri {
+        .store-chip {
             display: flex;
-            gap: 0;
-            margin-top: 40px;
-            border: 1px solid rgba(227, 184, 118, .25);
+            align-items: center;
+            gap: 8px;
+            padding: 11px 17px;
             border-radius: 12px;
-            overflow: hidden;
-            max-width: 440px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            font-size: .8rem;
+            font-weight: 600;
         }
 
-        .hero-tri div {
-            flex: 1;
-            padding: 14px 16px;
-            text-align: center;
-            border-right: 1px solid rgba(227, 184, 118, .2);
+        .store-chip svg {
+            width: 16px;
+            height: 16px;
         }
 
-        .hero-tri div:last-child {
-            border-right: 0;
+        .hero-promo-phones {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
         }
 
-        .hero-tri strong {
-            display: block;
+        .phone-back {
+            transform: translateX(30px) rotate(-6deg);
+            opacity: .5;
+            margin-bottom: 26px;
+        }
+
+        .phone-front {
+            transform: translateX(-16px) rotate(3deg);
+            z-index: 2;
+        }
+
+        /* hero service tab switcher */
+        .svc-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .svc-tab {
             font-family: 'JetBrains Mono', monospace;
             font-size: .68rem;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--gold-300);
+            letter-spacing: .03em;
+            padding: 8px 13px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .28);
+            color: rgba(255, 255, 255, .65);
+            cursor: pointer;
+            background: transparent;
+            transition: all .18s ease;
         }
 
-        .hero-tri span {
-            display: block;
-            font-size: .74rem;
-            color: rgba(250, 248, 242, .6);
-            margin-top: 4px;
+        .svc-tab:hover {
+            color: var(--amber-500);
+            border-color: var(--amber-500);
+        }
+
+        .svc-tab.active {
+            background: var(--orange-500);
+            color: #fff;
+            border-color: var(--orange-500);
+        }
+
+        .phone-content {
+            display: none;
+        }
+
+        .phone-content.active {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
         }
 
         /* generic bands */
@@ -583,474 +692,472 @@
             background: var(--paper);
         }
 
-        .band-paper {
-            background: var(--cream-50);
+        .band-blue-tint {
+            background: var(--blue-100);
         }
 
         .band-white,
-        .band-paper {
+        .band-blue-tint {
             padding: 84px 0;
         }
 
         .section-head {
-            max-width: 680px;
-            margin-bottom: 8px;
+            max-width: 640px;
+            margin-bottom: 6px;
         }
 
         .band-white .eyebrow,
-        .band-paper .eyebrow {
-            color: var(--gold-600);
+        .band-blue-tint .eyebrow {
+            color: var(--blue-600);
         }
 
         .band-white .eyebrow::before,
-        .band-paper .eyebrow::before {
-            background: var(--gold-600);
+        .band-blue-tint .eyebrow::before {
+            background: var(--blue-600);
         }
 
         .section-head h2 {
-            font-size: clamp(1.6rem, 3vw, 2.15rem);
-            margin-top: 10px;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-top: 8px;
         }
 
         .section-head p {
             color: var(--ink-700);
             margin-top: 14px;
-            max-width: 62ch;
+            max-width: 60ch;
             line-height: 1.6;
         }
 
-        /* philosophy */
-        .philosophy {
+        /* MEANING section (image 2 style): text left, phone right */
+        .meaning-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 24px;
-            margin-top: 8px;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 56px;
+            align-items: center;
         }
 
-        .phil-card {
-            padding: 6px 0;
+        .meaning-grid h2 {
+            font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+            line-height: 1.15;
         }
 
-        .phil-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .75rem;
-            color: var(--gold-600);
-            margin-bottom: 10px;
-        }
-
-        .phil-card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 8px;
-        }
-
-        .phil-card p {
+        .meaning-grid p.lede {
             color: var(--ink-700);
-            font-size: .92rem;
-            line-height: 1.6;
-            margin: 0;
+            margin-top: 20px;
+            line-height: 1.7;
+            font-size: 1.02rem;
+            max-width: 50ch;
         }
 
-        /* flagship */
-        .band-forest {
-            background: var(--forest-950);
-            color: var(--cream-50);
+        .meaning-phone {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* WHY CHOOSE cards (image 3 style) */
+        .why-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 46px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .why-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .why-card-lg {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .why-card-lg h3 {
+            font-size: 1.08rem;
+            color: var(--blue-600);
+        }
+
+        .why-card-lg p {
+            color: var(--ink-700);
+            font-size: .9rem;
+            line-height: 1.6;
+            margin: 8px 0 0;
+        }
+
+        .ticker-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .ticker-card h3 {
+            font-size: 1.02rem;
+        }
+
+        .ticker-card h3 span {
+            color: var(--orange-500);
+        }
+
+        .ticker-list {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ticker-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 12px;
+            border-radius: 10px;
+            background: var(--cream-50);
+            font-size: .82rem;
+        }
+
+        .ticker-row .name {
+            font-weight: 700;
+            color: var(--navy-950);
+        }
+
+        .ticker-row .val {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--green-500);
+            font-weight: 600;
+        }
+
+        .why-phones {
+            display: flex;
+            justify-content: center;
+            gap: -20px;
+        }
+
+        .why-phones .phone-back {
+            margin-bottom: 20px;
+        }
+
+        /* FEATURES grid (image 4 style) */
+        .features-band {
+            background: var(--cream-50);
             padding: 84px 0;
         }
 
-        .band-forest .eyebrow {
-            color: var(--gold-300);
+        .features-center-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 50px;
         }
 
-        .flagship-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 56px;
-            align-items: center;
-            margin-top: 12px;
+        .features-center-head h2 {
+            font-size: clamp(1.8rem, 3.4vw, 2.4rem);
         }
 
-        .flagship-grid h2 {
-            color: var(--cream-50);
-            font-size: clamp(1.7rem, 3.2vw, 2.3rem);
-        }
-
-        .flagship-grid>div>p {
-            color: rgba(250, 248, 242, .72);
-            line-height: 1.65;
+        .features-center-head p {
+            color: var(--ink-700);
             margin-top: 16px;
-            max-width: 52ch;
+            line-height: 1.65;
         }
 
-        .journey {
-            margin-top: 30px;
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid rgba(227, 184, 118, .25);
-            border-radius: var(--radius);
-            padding: 22px 24px;
-        }
-
-        .journey-row {
-            display: flex;
+        .features-showcase {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
             align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .78rem;
         }
 
-        .journey-row .step-tag {
-            background: rgba(227, 184, 118, .12);
-            border: 1px solid rgba(227, 184, 118, .3);
-            color: var(--gold-300);
-            padding: 6px 12px;
-            border-radius: 999px;
-        }
-
-        .journey-row .arrow {
-            color: var(--gold-500);
-        }
-
-        .journey-label {
-            font-size: .72rem;
-            color: rgba(250, 248, 242, .5);
-            margin-bottom: 10px;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-        }
-
-        .flagship-feat {
-            margin-top: 26px;
-        }
-
-        .flagship-feat ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px 20px;
-        }
-
-        .flagship-feat li {
+        .feature-col {
             display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-size: .88rem;
-            color: rgba(250, 248, 242, .75);
-            line-height: 1.5;
+            flex-direction: column;
+            gap: 26px;
         }
 
-        .flagship-feat li svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-            margin-top: 2px;
-            stroke: var(--leaf-300);
+        .feature-col.right {
+            align-items: flex-end;
+            text-align: right;
         }
 
-        .flagship-visual {
-            background: linear-gradient(155deg, rgba(227, 184, 118, .08), rgba(227, 184, 118, .02));
-            border: 1px solid rgba(227, 184, 118, .22);
-            border-radius: 20px;
-            padding: 36px;
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            max-width: 300px;
         }
 
-        /* platforms grid */
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-            margin-top: 44px;
+        .feature-col.right .feature-item {
+            flex-direction: row-reverse;
         }
 
-        .platform-card {
+        .feature-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
             background: var(--paper);
             border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 26px 22px;
-            transition: transform .18s ease, box-shadow .18s ease;
-        }
-
-        .platform-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .platform-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background: var(--leaf-100);
-            color: var(--leaf-500);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow);
         }
 
-        .platform-icon svg {
-            width: 20px;
-            height: 20px;
+        .feature-icon svg {
+            width: 21px;
+            height: 21px;
+            stroke: var(--blue-600);
         }
 
-        .platform-card h3 {
-            font-size: 1.02rem;
-            margin-bottom: 8px;
-            line-height: 1.3;
+        .feature-item h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
         }
 
-        .platform-card p {
+        .feature-item p {
             color: var(--ink-700);
-            font-size: .87rem;
+            font-size: .86rem;
             line-height: 1.55;
             margin: 0;
         }
 
-        .platform-tag {
-            display: inline-block;
-            margin-top: 14px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .72rem;
-            color: var(--gold-600);
-            font-weight: 600;
+        .features-phones {
+            display: flex;
+            justify-content: center;
         }
 
-        /* consulting columns */
-        .consult-grid {
+        /* NEWSLETTER band (image 5 style) */
+        .newsletter-band {
+            background: linear-gradient(120deg, var(--navy-700), var(--navy-950));
+            color: #fff;
+            padding: 64px 0;
+            overflow: hidden;
+        }
+
+        .newsletter-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
-            margin-top: 44px;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        .consult-card {
-            border-top: 3px solid var(--card-accent, var(--leaf-500));
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 28px 24px;
+        .newsletter-grid h2 {
+            color: #fff;
+            font-size: clamp(1.5rem, 2.8vw, 2.1rem);
         }
 
-        .consult-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 14px;
+        .newsletter-grid .sub {
+            color: var(--amber-500);
+            font-weight: 700;
+            margin-top: 6px;
+            font-size: 1.02rem;
         }
 
-        .consult-card ul {
+        .newsletter-grid p.lede {
+            color: rgba(255, 255, 255, .72);
+            margin-top: 16px;
+        }
+
+        .subscribe-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+            max-width: 460px;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-row input {
+            flex: 1;
+            min-width: 200px;
+            padding: 13px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .3);
+            background: transparent;
+            color: #fff;
+            font-size: .88rem;
+        }
+
+        .subscribe-row input::placeholder {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .check-list {
             list-style: none;
-            margin: 0;
+            margin: 26px 0 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 10px;
         }
 
-        .consult-card li {
-            font-size: .87rem;
-            color: var(--ink-700);
-            padding-left: 16px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .consult-card li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: .55em;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--card-accent, var(--leaf-500));
-        }
-
-        /* steps */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 26px;
-            margin-top: 44px;
-        }
-
-        .steps.seven {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .step {
-            border-left: 2px solid var(--gold-500);
-            padding-left: 18px;
-        }
-
-        .step-num {
-            font-family: 'Fraunces', serif;
-            font-size: 1.02rem;
-            font-weight: 600;
-            color: var(--forest-950);
-            margin-bottom: 8px;
-        }
-
-        .step p {
-            color: var(--ink-700);
-            font-size: .88rem;
-            line-height: 1.55;
-            margin: 0;
-        }
-
-        /* why grid */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-top: 44px;
-        }
-
-        .why-card {
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 26px 22px;
-        }
-
-        .why-card h3 {
-            font-size: 1.02rem;
-            margin-bottom: 10px;
-        }
-
-        .why-card p {
-            color: var(--ink-700);
-            font-size: .89rem;
-            line-height: 1.58;
-            margin: 0;
-        }
-
-        /* insights */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 44px;
-        }
-
-        .blog-card {
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: transform .18s ease, box-shadow .18s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .blog-thumb {
-            background: linear-gradient(155deg, var(--forest-800), var(--forest-950));
-            height: 100px;
+        .check-list li {
             display: flex;
             align-items: center;
+            gap: 10px;
+            font-size: .86rem;
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .check-list svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--green-500);
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, .9);
+            border-radius: 50%;
+            padding: 3px;
+        }
+
+        .newsletter-phone {
+            display: flex;
             justify-content: center;
         }
 
-        .blog-thumb svg {
-            width: 32px;
-            height: 32px;
-            color: var(--gold-300);
+        /* FAQ accordion */
+        .faq-list {
+            max-width: 780px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .blog-body {
-            padding: 22px 22px 24px;
+        .faq-item {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--paper);
+            overflow: hidden;
         }
 
-        .blog-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .7rem;
-            color: var(--ink-faint);
-            margin: 0 0 10px;
-            letter-spacing: .02em;
-        }
-
-        .blog-body h3 {
-            font-size: 1rem;
-            line-height: 1.35;
-            margin-bottom: 10px;
-        }
-
-        .blog-body p {
-            color: var(--ink-700);
-            font-size: .88rem;
-            line-height: 1.55;
-            margin: 0 0 14px;
-        }
-
-        .blog-readmore {
-            font-size: .86rem;
-            font-weight: 600;
-            color: var(--forest-800);
-        }
-
-        /* final CTA */
-        .cta-band {
+        .faq-q {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 32px;
-            flex-wrap: wrap;
+            gap: 16px;
+            padding: 18px 22px;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: .96rem;
+            color: var(--navy-950);
         }
 
-        .cta-band h2 {
-            font-size: clamp(1.4rem, 2.6vw, 1.9rem);
-            max-width: 32ch;
-        }
-
-        .cta-band p {
-            color: var(--ink-700);
-            margin-top: 10px;
-            line-height: 1.6;
-            max-width: 46ch;
-        }
-
-        .band-forest .cta-band h2,
-        .band-forest .cta-band p {
-            color: var(--cream-50);
-        }
-
-        .band-forest .cta-band p {
-            color: rgba(250, 248, 242, .7);
-        }
-
-        .btn-row {
+        .faq-q .plus {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--blue-100);
+            color: var(--blue-600);
             display: flex;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            flex-wrap: wrap;
+            transition: transform .25s ease, background .25s ease, color .25s ease;
+        }
+
+        .faq-q .plus svg {
+            width: 13px;
+            height: 13px;
+            transition: transform .25s ease;
+        }
+
+        .faq-item.open .faq-q .plus {
+            background: var(--orange-500);
+            color: #fff;
+        }
+
+        .faq-item.open .faq-q .plus svg {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+        }
+
+        .faq-a p {
+            padding: 0 22px 20px;
+            margin: 0;
+            color: var(--ink-700);
+            font-size: .88rem;
+            line-height: 1.65;
+            max-width: 62ch;
+        }
+
+        /* newsletter form states */
+        .subscribe-row.hidden {
+            display: none;
+        }
+
+        .form-success {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: rgba(31, 169, 113, .15);
+            border: 1px solid rgba(31, 169, 113, .4);
+            color: #fff;
+            font-size: .86rem;
+            max-width: 460px;
+        }
+
+        .form-success.show {
+            display: flex;
+        }
+
+        .form-success svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--green-500);
+            flex-shrink: 0;
+        }
+
+        .field-error {
+            display: none;
+            margin-top: 8px;
+            font-size: .76rem;
+            color: var(--orange-400);
+        }
+
+        .field-error.show {
+            display: block;
         }
 
         /* footer */
         footer.site-footer {
-            background: var(--forest-950);
-            color: rgba(250, 248, 242, .72);
-            padding: 64px 0 28px;
+            background: var(--navy-950);
+            color: rgba(255, 255, 255, .65);
+            padding: 56px 0 26px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.3fr repeat(4, 1fr);
+            grid-template-columns: 1.3fr repeat(3, 1fr);
             gap: 30px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            padding-bottom: 36px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
         }
 
-        .footer-grid .logo {
-            color: var(--cream-50);
-            margin-bottom: 14px;
+        .footer-grid .logo-name {
+            color: #fff;
         }
 
         .footer-grid .tag {
             font-size: .85rem;
             line-height: 1.6;
-            color: rgba(250, 248, 242, .55);
-            max-width: 30ch;
+            color: rgba(255, 255, 255, .5);
+            max-width: 32ch;
+            margin-top: 12px;
         }
 
         .footer-col h4 {
@@ -1058,7 +1165,7 @@
             font-size: .7rem;
             letter-spacing: .1em;
             text-transform: uppercase;
-            color: var(--gold-300);
+            color: var(--amber-500);
             margin-bottom: 14px;
             font-weight: 500;
         }
@@ -1074,11 +1181,11 @@
 
         .footer-col a {
             font-size: .87rem;
-            color: rgba(250, 248, 242, .72);
+            color: rgba(255, 255, 255, .65);
         }
 
         .footer-col a:hover {
-            color: var(--gold-300);
+            color: var(--amber-500);
         }
 
         .footer-bottom {
@@ -1086,44 +1193,13 @@
             justify-content: space-between;
             padding-top: 22px;
             font-size: .8rem;
-            color: rgba(250, 248, 242, .5);
+            color: rgba(255, 255, 255, .45);
             flex-wrap: wrap;
             gap: 8px;
         }
 
-        .to-top {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--forest-950);
-            color: var(--gold-300);
-            border: 1px solid rgba(227, 184, 118, .35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .2s ease;
-        }
-
-        .to-top.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .to-top svg {
-            width: 18px;
-            height: 18px;
-        }
-
         @media (max-width:980px) {
-
-            .nav-links,
-            .nav-cta {
+            .nav-links {
                 display: none;
             }
 
@@ -1131,104 +1207,70 @@
                 display: block;
             }
 
-            .hero-grid {
+            .hero-promo-grid,
+            .meaning-grid,
+            .why-grid-2,
+            .newsletter-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .hero-actions {
-                justify-content: center !important;
-            }
-
-            .hero-tri {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-phone {
+            .meaning-phone,
+            .why-phones,
+            .newsletter-phone,
+            .hero-promo-phones {
                 order: -1;
-                margin-bottom: 8px;
+                margin-bottom: 12px;
             }
 
-            .phone-mock {
-                width: 220px;
+            .why-grid-2 {
+                text-align: left;
             }
 
-            .phone-screen {
-                min-height: 320px;
-            }
-
-            .philosophy {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-
-            .platform-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .consult-grid {
+            .features-showcase {
                 grid-template-columns: 1fr;
             }
 
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
+            .feature-col,
+            .feature-col.right {
+                align-items: center;
+                text-align: center;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .flagship-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .flagship-feat ul {
-                grid-template-columns: 1fr;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr 1fr;
+            .feature-col.right .feature-item,
+            .feature-item {
+                flex-direction: column;
+                align-items: center;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .subscribe-row {
+                justify-content: center;
+            }
+
+            .check-list {
+                align-items: center;
+            }
         }
 
         @media (max-width:620px) {
-
-            .platform-grid,
-            .steps,
-            .why-grid,
-            .blog-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
             }
 
             .band-white,
-            .band-paper,
-            .band-forest {
-                padding: 60px 0;
+            .band-blue-tint,
+            .features-band,
+            .hero-promo,
+            .newsletter-band {
+                padding: 56px 0;
             }
 
-            .cta-band {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hero-tri {
-                flex-direction: column;
-                max-width: none;
-            }
-
-            .hero-tri div {
-                border-right: 0;
-                border-bottom: 1px solid rgba(227, 184, 118, .2);
-            }
-
-            .hero-tri div:last-child {
-                border-bottom: 0;
+            .phone-back {
+                display: none;
             }
         }
 
@@ -1250,93 +1292,323 @@
 
     <header class="site-header">
         <div class="wrap nav">
-            <a href="index.html" class="logo">
-                <span class="logo-word">Ejersa<small>Tech &amp; Consult</small></span>
+            <a href="#" class="logo">
+                <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                    </svg></span>
+                <span class="logo-name">Ejersa</span>
             </a>
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
             <ul class="nav-links">
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="solutions.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
-            <div class="nav-cta"></div>
+            <a href="#contact" class="btn btn-outline-navy">Contact us</a>
         </div>
     </header>
 
     <main>
 
-        <!-- 1. HERO -->
-        <section class="hero">
-            <div class="wrap hero-grid">
+        <!-- 1. HERO / PROMO (image 1 style) -->
+        <section class="hero-promo" id="home">
+            <div class="wrap hero-promo-grid">
                 <div class="reveal">
-                    <p class="eyebrow">Technology · Intelligence · Solutions</p>
-                    <h1>Technology that solves real problems.</h1>
-                    <p class="hero-lede">Digital platforms, SaaS tools and strategic consulting — built for a
-                        changing Ethiopia.</p>
-                    <div class="hero-actions" style="justify-content:flex-start;">
-                        <a href="solutions.html" class="btn btn-primary">Explore Products</a>
-                        <a href="contact.html" class="btn btn-ghost-on-dark">Talk to Ejersa</a>
+                    <p class="eyebrow">Worker Matching · Errand · Rental · Property</p>
+                    <h1>Post a task. A verified agent handles it.</h1>
+                    <p class="lede">One app for four everyday services — find a worker, run an errand, rent
+                        equipment, or list a property — all done through a real, verified agent near you.</p>
+                    <div class="store-row">
+                        <div class="store-chip"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M16.6 12.3c0-2.4 2-3.6 2-3.6-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.3 1.2 9.6.8 1.2 1.7 2.4 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.1.7c1.3 0 2.1-1.1 2.9-2.3.6-.9.9-1.5 1.4-2.6-3.7-1.4-3.7-4.9-3.7-5z" />
+                                <path
+                                    d="M14.7 5.1c.6-.8 1.1-1.9 1-3-1 0-2.2.6-2.9 1.5-.6.7-1.1 1.9-1 2.9 1.1.1 2.2-.5 2.9-1.4z" />
+                            </svg>App Store</div>
+                        <div class="store-chip"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 3.6v16.8c0 .3.2.6.4.7l9.9-9.1L3.4 2.9c-.2.1-.4.4-.4.7Z" />
+                                <path d="M15.4 12l2.9-2.7-9-5.2 6.1 7.9Z" />
+                                <path d="M15.4 12l-6.1 7.9 9-5.2-2.9-2.7Z" />
+                                <path d="M18.3 9.3 21 10.9c.5.3.5 1 0 1.3l-2.7 1.6-3-2.9 3-2.6Z" />
+                            </svg>Google Play</div>
                     </div>
-                    <div class="hero-tri">
-                        <div><strong>6</strong><span>Apps, one account</span></div>
-                        <div><strong>SaaS +</strong><span>Consulting</span></div>
-                        <div><strong>Built for</strong><span>Ethiopia</span></div>
-                    </div>
+                    <p class="mono" style="margin-top:22px;font-size:.72rem;color:rgba(255,255,255,.5);">App coming soon
+                        — join the list below to get early access</p>
                 </div>
 
-                <div class="hero-phone reveal">
-                    <div class="phone-mock">
-                        <div class="phone-glow"></div>
+                <div class="reveal">
+                    <div class="svc-tabs" id="heroTabs" role="tablist" aria-label="Preview a service">
+                        <button class="svc-tab active" data-target="hs-worker">Worker</button>
+                        <button class="svc-tab" data-target="hs-errand">Errand</button>
+                        <button class="svc-tab" data-target="hs-rental">Rental</button>
+                        <button class="svc-tab" data-target="hs-property">Property</button>
+                    </div>
+                    <div class="hero-promo-phones">
+                        <div class="phone phone-back">
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="status-row"><span>9:41</span></div>
+                                    <div class="screen-body">
+                                        <div class="app-header-row"><span style="width:22px;"></span></div>
+                                        <h3 style="font-size:1rem;line-height:1.3;">Post your first errand free</h3>
+                                        <p style="font-size:.72rem;color:var(--ink-faint);line-height:1.6;">Limited time
+                                            offer — waive the agent fee on your first request.</p>
+                                        <div style="border:1px solid var(--line);border-radius:12px;padding:12px;">
+                                            <div
+                                                style="font-size:.7rem;font-weight:700;color:var(--navy-950);margin-bottom:8px;">
+                                                Eligibility</div>
+                                            <div style="font-size:.66rem;color:var(--ink-700);line-height:1.9;">✓ New
+                                                users only<br>✓ First request under 500 ETB<br>✓ One offer per account
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone phone-front">
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="status-row"><span>9:41</span>
+                                        <div class="status-icons"><svg viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0" />
+                                                <circle cx="12" cy="19" r="1" fill="currentColor" />
+                                            </svg></div>
+                                    </div>
+                                    <div class="screen-body">
+
+                                        <!-- Worker Matching -->
+                                        <div class="phone-content active" id="hs-worker">
+                                            <div class="app-header-row">
+                                                <div>
+                                                    <div class="greet">Hello, Selam</div>
+                                                    <div class="sub">Bole, Addis Ababa</div>
+                                                </div>
+                                                <div class="icon-btn"><svg viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2">
+                                                        <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                                                        <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+                                                    </svg></div>
+                                            </div>
+                                            <div class="promo-banner">
+                                                <strong>Verified agents near you</strong>
+                                                <span>Post a request and get matched in minutes</span>
+                                                <span class="promo-btn">Get started</span>
+                                            </div>
+                                            <div class="tile-grid">
+                                                <div class="tile blue">
+                                                    <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="1.8">
+                                                            <circle cx="11" cy="11" r="7" />
+                                                            <path d="M21 21l-4.3-4.3" />
+                                                        </svg></div><span>Worker</span>
+                                                </div>
+                                                <div class="tile orange">
+                                                    <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="1.8">
+                                                            <rect x="5" y="2" width="14" height="20" rx="2" />
+                                                        </svg></div><span>Errand</span>
+                                                </div>
+                                                <div class="tile green">
+                                                    <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="1.8">
+                                                            <path d="M3 11l9-8 9 8" />
+                                                            <path d="M5 10v10h14V10" />
+                                                        </svg></div><span>Rental</span>
+                                                </div>
+                                                <div class="tile amber">
+                                                    <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="1.8">
+                                                            <path d="M3 9l9-6 9 6" />
+                                                            <path
+                                                                d="M5 9v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9" />
+                                                        </svg></div><span>Property</span>
+                                                </div>
+                                            </div>
+                                            <div class="agent-row"><span class="av">KT</span>
+                                                <div>
+                                                    <div class="t">Kebede T. — Electrician</div>
+                                                    <div class="s">4.9 ★ · 1.2 km · Verified</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Errand -->
+                                        <div class="phone-content" id="hs-errand">
+                                            <div class="app-header-row">
+                                                <div class="greet">Guday Asfeqami</div><span class="mono"
+                                                    style="font-size:.6rem;background:var(--blue-100);color:var(--blue-600);padding:4px 8px;border-radius:999px;">Agent-run</span>
+                                            </div>
+                                            <div class="amt-quick"><span class="active">Kebele ID</span><span>Bank
+                                                    queue</span><span>Bill payment</span></div>
+                                            <div class="agent-row"><span class="av"
+                                                    style="background:var(--orange-500);">AB</span>
+                                                <div>
+                                                    <div class="t">Abel B. on your errand</div>
+                                                    <div class="s">ETA to Kebele office · 12 min</div>
+                                                </div>
+                                            </div>
+                                            <div class="status-list">
+                                                <div class="row done"><svg viewBox="0 0 24 24" fill="none"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M20 6 9 17l-5-5" />
+                                                    </svg>Requested</div>
+                                                <div class="row done"><svg viewBox="0 0 24 24" fill="none"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M20 6 9 17l-5-5" />
+                                                    </svg>Agent assigned</div>
+                                                <div class="row pending"><svg viewBox="0 0 24 24" fill="none"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="9" />
+                                                    </svg>In progress</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Rental -->
+                                        <div class="phone-content" id="hs-rental">
+                                            <div class="app-header-row">
+                                                <div class="greet">Rentals near you</div>
+                                            </div>
+                                            <div class="amt-quick"><span
+                                                    class="active">Tools</span><span>Vehicles</span><span>Events</span>
+                                            </div>
+                                            <div class="agent-row"><span class="av"
+                                                    style="background:var(--blue-600);">YM</span>
+                                                <div>
+                                                    <div class="t">Concrete Mixer</div>
+                                                    <div class="s">800/day · Yared M.</div>
+                                                </div>
+                                            </div>
+                                            <div class="agent-row"><span class="av"
+                                                    style="background:var(--orange-500);">HG</span>
+                                                <div>
+                                                    <div class="t">Event Tent (50-seat)</div>
+                                                    <div class="s">2,500/day · Hana G.</div>
+                                                </div>
+                                            </div>
+                                            <div class="cta-block">Request via agent</div>
+                                        </div>
+
+                                        <!-- Property -->
+                                        <div class="phone-content" id="hs-property">
+                                            <div class="app-header-row">
+                                                <div class="greet">Property</div>
+                                            </div>
+                                            <div class="amt-quick"><span class="active">For Rent</span><span>For
+                                                    Sale</span><span>Condo</span></div>
+                                            <div class="agent-row"><span class="av"
+                                                    style="background:var(--green-500);">MT</span>
+                                                <div>
+                                                    <div class="t">2BR Apartment, CMC</div>
+                                                    <div class="s">18,000/mo · Meron T.</div>
+                                                </div>
+                                            </div>
+                                            <div class="agent-row"><span class="av"
+                                                    style="background:var(--amber-500);">MT</span>
+                                                <div>
+                                                    <div class="t">Meron T. — Agent</div>
+                                                    <div class="s">Responds in ~10 min</div>
+                                                </div>
+                                            </div>
+                                            <div class="cta-block">Message agent</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="bottom-nav">
+                                        <div class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2">
+                                                <path d="M3 11l9-8 9 8" />
+                                                <path d="M5 10v10h14V10" />
+                                            </svg></div>
+                                        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2">
+                                                <circle cx="11" cy="11" r="7" />
+                                                <path d="M21 21l-4.3-4.3" />
+                                            </svg></div>
+                                        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2">
+                                                <path d="M12 8v4l3 2" />
+                                                <circle cx="12" cy="12" r="9" />
+                                            </svg></div>
+                                        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2">
+                                                <circle cx="12" cy="8" r="4" />
+                                                <path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6" />
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. MEANING section (image 2 style) -->
+        <section class="band-white" id="services">
+            <div class="wrap meaning-grid">
+                <div class="reveal">
+                    <p class="eyebrow">Because every request needs a real person</p>
+                    <h2>An app is not enough. You need someone on the ground.</h2>
+                    <p class="lede">We match every request — a repair, an errand, a rental, a property viewing —
+                        to a verified local agent who actually shows up and gets it done. Fast, transparent, and
+                        tracked from request to completion.</p>
+                    <div class="hero-actions" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;">
+                        <a href="#how-it-works" class="btn btn-orange">See how it works</a>
+                    </div>
+                </div>
+                <div class="meaning-phone reveal">
+                    <div class="phone">
                         <div class="phone-frame">
                             <div class="phone-notch"></div>
                             <div class="phone-screen">
-                                <div class="phone-app-header"><span class="dot"></span>Ejersa</div>
-                                <div class="phone-service-list" id="phoneServiceList">
-                                    <div class="phone-service-item active">
-                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
-                                            </svg></span>
-                                        <span>Utility Record</span>
+                                <div class="status-row"><span>9:41</span></div>
+                                <div class="screen-body">
+                                    <div class="app-header-row">
+                                        <div class="greet">New request</div>
                                     </div>
-                                    <div class="phone-service-item">
-                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                                <circle cx="11" cy="11" r="7" />
-                                                <path d="M21 21l-4.3-4.3" />
-                                            </svg></span>
-                                        <span>Work Matching</span>
+                                    <div class="amt-card">
+                                        <div class="lbl">Request type</div>
+                                        <div class="amt">Electrician — half day</div>
+                                        <div class="amt-quick"><span
+                                                class="active">Worker</span><span>Errand</span><span>Rental</span><span>Property</span>
+                                        </div>
                                     </div>
-                                    <div class="phone-service-item">
-                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                                <rect x="1" y="7" width="15" height="10" rx="1" />
-                                                <path d="M16 10h4l3 3v4h-7z" />
-                                                <circle cx="6" cy="19" r="2" />
-                                                <circle cx="18" cy="19" r="2" />
-                                            </svg></span>
-                                        <span>Delivery</span>
+                                    <div class="agent-row">
+                                        <span class="av">KT</span>
+                                        <div>
+                                            <div class="t">Kebede T. — Electrician</div>
+                                            <div class="s">4.9 ★ · 1.2 km · Verified</div>
+                                        </div>
                                     </div>
-                                    <div class="phone-service-item">
-                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M3 9l1.5-5h15L21 9" />
-                                                <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
-                                                <path d="M9 13a3 3 0 0 0 6 0" />
-                                            </svg></span>
-                                        <span>Marketplace</span>
+                                    <div class="status-list" id="meaningStatus">
+                                        <div class="row pending" data-icon-done="M20 6 9 17l-5-5"><svg
+                                                viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="9" />
+                                            </svg>Request submitted</div>
+                                        <div class="row pending" data-icon-done="M20 6 9 17l-5-5"><svg
+                                                viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="9" />
+                                            </svg>Agent matched</div>
+                                        <div class="row pending" data-icon-done="M20 6 9 17l-5-5"><svg
+                                                viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="9" />
+                                            </svg>On the way</div>
+                                        <div class="row pending" data-icon-done="M20 6 9 17l-5-5"><svg
+                                                viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="9" />
+                                            </svg>Job completed</div>
                                     </div>
-                                    <div class="phone-service-item">
-                                        <span class="psi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M9 11l3 3L22 4" />
-                                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                                            </svg></span>
-                                        <span>Errands</span>
-                                    </div>
+                                    <div class="cta-block">Confirm request</div>
                                 </div>
                             </div>
                         </div>
@@ -1345,177 +1617,359 @@
             </div>
         </section>
 
-        <!-- 2. PROBLEM / PHILOSOPHY -->
-        <section class="band-white">
+        <!-- 3. WHY CHOOSE cards (image 3 style) -->
+        <section class="band-blue-tint">
             <div class="wrap">
                 <div class="section-head reveal">
-                    <p class="eyebrow">Our philosophy</p>
-                    <h2>We start with the problem, not the technology.</h2>
-                    <p>We study how people and businesses operate, then turn what's broken into digital products,
-                        data and strategy.</p>
+                    <p class="eyebrow">Why choose Ejersa</p>
+                    <h2>Built around trust, not just listings</h2>
+                    <p>At Ejersa, every request is handled by a real, verified agent — not just posted and left
+                        to chance. Here's why people rely on us:</p>
                 </div>
-                <div class="philosophy">
-                    <div class="phil-card reveal">
-                        <div class="phil-num mono">01</div>
-                        <h3>Digital Products &amp; SaaS</h3>
-                        <p>Platforms that solve real problems, built to scale as SaaS.</p>
-                    </div>
-                    <div class="phil-card reveal">
-                        <div class="phil-num mono">02</div>
-                        <h3>Business &amp; Technology Consulting</h3>
-                        <p>Strategy, market understanding and technology-enabled operations.</p>
-                    </div>
-                    <div class="phil-card reveal">
-                        <div class="phil-num mono">03</div>
-                        <h3>Research &amp; Intelligence</h3>
-                        <p>Market and competitor data, turned into decisions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. FLAGSHIP SAAS: UTILITY RECORD -->
-        <section class="band-forest" id="utility-record">
-            <div class="wrap">
-                <p class="eyebrow">Flagship solution</p>
-                <div class="flagship-grid">
-                    <div class="reveal">
-                        <h2>Utility Record — digitizing electricity and water meter reporting.</h2>
-                        <p>Bills are already paid digitally. Meter reporting isn't — yet. Utility Record closes that
-                            gap: customers submit readings from their phone, providers get structured data.</p>
-
-                        <div class="flagship-feat">
-                            <ul>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 6L9 17l-5-5" />
-                                    </svg>Register electricity or water accounts</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 6L9 17l-5-5" />
-                                    </svg>Capture &amp; submit meter readings</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 6L9 17l-5-5" />
-                                    </svg>Maintain a digital meter history</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 6L9 17l-5-5" />
-                                    </svg>Manage multiple utility accounts</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 6L9 17l-5-5" />
-                                    </svg>Status updates &amp; notifications</li>
-                                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 6L9 17l-5-5" />
-                                    </svg>Fewer unnecessary center visits</li>
-                            </ul>
+                <div class="why-grid-2">
+                    <div class="why-cards reveal">
+                        <div class="why-card-lg">
+                            <h3>Verified &amp; Reliable</h3>
+                            <p>Every agent is identity-checked before they can accept a request, so you always
+                                know who's showing up.</p>
                         </div>
-                        <div class="hero-actions">
-                            <a href="solutions.html#utility-record" class="btn btn-primary">Explore Utility Record</a>
-                            <a href="contact.html" class="btn btn-outline">Partner With Us</a>
+                        <div class="why-card-lg">
+                            <h3>Fast Matching</h3>
+                            <p>Requests are matched to the nearest available agent — most are accepted within
+                                minutes, not hours.</p>
+                        </div>
+                        <div class="ticker-card">
+                            <h3>Live Agent <span>Activity</span></h3>
+                            <div class="ticker-list" id="tickerList">
+                                <div class="ticker-row"><span class="name">Worker Matching</span><span class="val"
+                                        data-count="142">0 active</span></div>
+                                <div class="ticker-row"><span class="name">Errand</span><span class="val"
+                                        data-count="89">0 active</span></div>
+                                <div class="ticker-row"><span class="name">Rental</span><span class="val"
+                                        data-count="37">0 active</span></div>
+                                <div class="ticker-row"><span class="name">Property</span><span class="val"
+                                        data-count="61">0 active</span></div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="reveal">
-                        <div class="flagship-visual">
-                            <div class="journey">
-                                <div class="journey-label">Today</div>
-                                <div class="journey-row">
-                                    <span class="step-tag">Receives bill</span><span class="arrow">→</span>
-                                    <span class="step-tag">Pays digitally</span><span class="arrow">→</span>
-                                    <span class="step-tag">Reports meter physically</span>
+                    <div class="why-phones reveal">
+                        <div class="phone phone-back">
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="status-row"><span>9:41</span></div>
+                                    <div class="screen-body">
+                                        <div class="app-header-row">
+                                            <div class="greet" style="font-size:.82rem;">Dashboard</div>
+                                        </div>
+                                        <div class="tile-grid">
+                                            <div class="tile blue">
+                                                <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="1.8">
+                                                        <path d="M3 3v18h18" />
+                                                        <path d="m7 15 4-6 3 3 5-8" />
+                                                    </svg></div><span>Requests</span>
+                                            </div>
+                                            <div class="tile green">
+                                                <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="1.8">
+                                                        <path d="M20 6 9 17l-5-5" />
+                                                    </svg></div><span>Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="journey" style="margin-top:16px;border-color:rgba(227,184,118,.4);">
-                                <div class="journey-label">Ejersa vision</div>
-                                <div class="journey-row">
-                                    <span class="step-tag">Receives bill</span><span class="arrow">→</span>
-                                    <span class="step-tag">Pays digitally</span><span class="arrow">→</span>
-                                    <span class="step-tag">Captures meter</span><span class="arrow">→</span>
-                                    <span class="step-tag">Submits digitally</span><span class="arrow">→</span>
-                                    <span class="step-tag">Provider receives record</span>
+                        </div>
+                        <div class="phone phone-front">
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="status-row"><span>9:41</span></div>
+                                    <div class="screen-body"
+                                        style="align-items:center;text-align:center;padding-top:30px;">
+                                        <div
+                                            style="width:56px;height:56px;border-radius:50%;background:var(--green-100);display:flex;align-items:center;justify-content:center;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-500)"
+                                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                                width="26" height="26">
+                                                <path d="M20 6 9 17l-5-5" />
+                                            </svg>
+                                        </div>
+                                        <h3 style="font-size:1rem;">Request Completed!</h3>
+                                        <div
+                                            style="width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:left;font-size:.72rem;color:var(--ink-700);">
+                                            <div style="display:flex;justify-content:space-between;padding:4px 0;">
+                                                <span>Agent</span><strong style="color:var(--navy-950);">Kebede
+                                                    T.</strong>
+                                            </div>
+                                            <div style="display:flex;justify-content:space-between;padding:4px 0;">
+                                                <span>Service</span><strong
+                                                    style="color:var(--navy-950);">Electrician</strong>
+                                            </div>
+                                            <div style="display:flex;justify-content:space-between;padding:4px 0;">
+                                                <span>Total</span><strong style="color:var(--navy-950);">400
+                                                    ETB</strong>
+                                            </div>
+                                        </div>
+                                        <div class="cta-block" style="width:100%;">Rate this agent</div>
+                                    </div>
                                 </div>
                             </div>
-                            <p style="margin-top:20px;color:rgba(250,248,242,.65);font-size:.86rem;line-height:1.6;">
-                                Also offered as a <strong style="color:var(--gold-300);">SaaS solution</strong> to
-                                electricity and water service providers — to receive, organize, monitor and manage
-                                customer-submitted meter records digitally.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. OTHER DIGITAL PLATFORMS -->
-        <section class="band-paper">
+        <!-- 4. FEATURES grid (image 4 style) -->
+        <section class="features-band" id="how-it-works">
             <div class="wrap">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Digital platforms</p>
-                    <h2>Building digital services around real-life needs</h2>
-                    <p>Five more apps beyond Utility Record — one account, one ecosystem.</p>
+                <div class="features-center-head reveal">
+                    <p class="eyebrow" style="justify-content:center;">Features</p>
+                    <h2>Everything runs through the same agent network</h2>
+                    <p>Ejersa lets you post a request quickly, securely, and hassle-free. Track live status,
+                        message your agent, and get it done — with a transparent, reliable experience.</p>
                 </div>
-                <div class="platform-grid">
-                    <div class="platform-card reveal">
-                        <div class="platform-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="7" />
-                                <path d="M21 21l-4.3-4.3" />
-                            </svg></div>
-                        <h3>Work &amp; Worker Matching</h3>
-                        <p>Find trusted technicians by skill, location and price.</p>
-                        <span class="platform-tag">Discover the platform →</span>
+                <div class="features-showcase">
+                    <div class="feature-col reveal">
+                        <div class="feature-item">
+                            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                                </svg></div>
+                            <div>
+                                <h3>Fast Matching</h3>
+                                <p>Requests are matched to a verified agent in minutes, not hours.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="7" width="15" height="10" rx="1" />
+                                    <path d="M16 10h4l3 3v4h-7z" />
+                                    <circle cx="6" cy="19" r="2" />
+                                    <circle cx="18" cy="19" r="2" />
+                                </svg></div>
+                            <div>
+                                <h3>Live Tracking</h3>
+                                <p>Follow your request from assignment to completion in real time.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="platform-card reveal">
-                        <div class="platform-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 11l3 3L22 4" />
-                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                            </svg></div>
-                        <h3>Errand / Guday Asfeqami</h3>
-                        <p>Verified agents handle bureaucratic errands for you.</p>
-                        <span class="platform-tag">Explore errand services →</span>
+                    <div class="features-phones reveal">
+                        <div class="phone">
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <div class="status-row"><span>9:41</span></div>
+                                    <div class="screen-body">
+                                        <div class="app-header-row">
+                                            <div class="greet">Rentals near you</div>
+                                        </div>
+                                        <div class="amt-quick" style="margin:-4px 0 4px;"><span
+                                                class="active">Tools</span><span>Vehicles</span><span>Events</span>
+                                        </div>
+                                        <div class="agent-row"><span class="av"
+                                                style="background:var(--blue-600);">YM</span>
+                                            <div>
+                                                <div class="t">Concrete Mixer</div>
+                                                <div class="s">800/day · Yared M.</div>
+                                            </div>
+                                        </div>
+                                        <div class="agent-row"><span class="av"
+                                                style="background:var(--orange-500);">HG</span>
+                                            <div>
+                                                <div class="t">Event Tent (50-seat)</div>
+                                                <div class="s">2,500/day · Hana G.</div>
+                                            </div>
+                                        </div>
+                                        <div class="cta-block">Request via agent</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="platform-card reveal">
-                        <div class="platform-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="1" y="7" width="15" height="10" rx="1" />
-                                <path d="M16 10h4l3 3v4h-7z" />
-                                <circle cx="6" cy="19" r="2" />
-                                <circle cx="18" cy="19" r="2" />
-                            </svg></div>
-                        <h3>Delivery</h3>
-                        <p>Live tracking between shops, couriers and customers.</p>
-                        <span class="platform-tag">Explore delivery →</span>
-                    </div>
-                    <div class="platform-card reveal">
-                        <div class="platform-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 9l1.5-5h15L21 9" />
-                                <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
-                                <path d="M9 13a3 3 0 0 0 6 0" />
-                            </svg></div>
-                        <h3>Used Goods Marketplace</h3>
-                        <p>Buy and sell used electronics, furniture and gear.</p>
-                        <span class="platform-tag">Explore marketplace →</span>
+                    <div class="feature-col right reveal">
+                        <div class="feature-item">
+                            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 11l3 3L22 4" />
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg></div>
+                            <div>
+                                <h3>Verified Agents</h3>
+                                <p>Every agent is identity-checked before they can accept work.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M12 8v4l3 2" />
+                                </svg></div>
+                            <div>
+                                <h3>Transparent Pricing</h3>
+                                <p>See the rate before you confirm — no surprise charges.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 9. PARTNERSHIP CTA -->
-        <section class="band-forest">
+        <!-- FAQ accordion -->
+        <section class="band-white" id="faq">
             <div class="wrap">
-                <div class="cta-band reveal">
-                    <div>
-                        <h2>Have a problem worth solving?</h2>
-                        <p>Tell us what you're trying to solve — technology, research, strategy or a SaaS platform —
-                            and our team will help frame the opportunity and a practical path forward.</p>
+                <div class="features-center-head reveal">
+                    <p class="eyebrow" style="justify-content:center;">FAQ</p>
+                    <h2>Questions people ask us</h2>
+                    <p>If you don't see your question here, reach out — we're happy to walk you through it.</p>
+                </div>
+                <div class="faq-list reveal">
+                    <div class="faq-item open">
+                        <button class="faq-q" aria-expanded="true">
+                            How does agent matching actually work?
+                            <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg></span>
+                        </button>
+                        <div class="faq-a">
+                            <p>When you submit a request, it's sent to the nearest verified agents who cover that
+                                service. The first one to accept is assigned to you, and you can see their profile
+                                and rating before they start.</p>
+                        </div>
                     </div>
-                    <div class="btn-row">
-                        <a href="contact.html" class="btn btn-primary">Talk to Ejersa</a>
-                        <a href="solutions.html" class="btn btn-outline">Explore Solutions</a>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            How are agents verified?
+                            <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg></span>
+                        </button>
+                        <div class="faq-a">
+                            <p>Every agent goes through an identity check before they can accept a request. For
+                                Worker Matching and Property specifically, we also confirm relevant licenses or
+                                past work where applicable.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            What happens if my agent doesn't show up?
+                            <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg></span>
+                        </button>
+                        <div class="faq-a">
+                            <p>You're not charged, and we'll immediately match you with the next available
+                                verified agent. Repeated no-shows affect an agent's standing on the platform.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            Is pricing the same across all four services?
+                            <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg></span>
+                        </button>
+                        <div class="faq-a">
+                            <p>No — each service has its own rate structure (hourly for Worker Matching, flat-fee
+                                for Errand, daily for Rental, and listing-based for Property). You always see the
+                                rate before you confirm.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            When does the app launch?
+                            <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg></span>
+                        </button>
+                        <div class="faq-a">
+                            <p>We're finishing up the agent-matching backend now. Join the waitlist below and
+                                you'll be the first to know when it's live.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. NEWSLETTER band (image 5 style) -->
+        <section class="newsletter-band" id="contact">
+            <div class="wrap newsletter-grid">
+                <div class="reveal">
+                    <h2>Unlock Early Access &amp; Updates!</h2>
+                    <p class="sub">Join the Ejersa waitlist today.</p>
+                    <p class="lede">Be first to know when the app launches, and get early perks on your first
+                        request.</p>
+                    <form class="subscribe-row" id="waitlistForm" novalidate>
+                        <input type="email" id="waitlistEmail" placeholder="Enter Email *" required />
+                        <button type="submit" class="btn btn-orange">Notify me</button>
+                    </form>
+                    <div class="field-error" id="waitlistError">Please enter a valid email address.</div>
+                    <div class="form-success" id="waitlistSuccess">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                        You're on the list — we'll email you when Ejersa launches.
+                    </div>
+                    <ul class="check-list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                            </svg>No hidden fees on any request.</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                            </svg>Fast agent matching, every time.</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                            </svg>Every agent verified before they act for you.</li>
+                    </ul>
+                </div>
+                <div class="newsletter-phone reveal">
+                    <div class="phone">
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="status-row"><span>9:41</span></div>
+                                <div class="screen-body">
+                                    <div class="app-header-row">
+                                        <div>
+                                            <div class="greet">Hello, Selam</div>
+                                            <div class="sub">Bole, Addis Ababa</div>
+                                        </div>
+                                    </div>
+                                    <div class="promo-banner">
+                                        <strong>Early access unlocked</strong>
+                                        <span>Your first request fee is waived</span>
+                                        <span class="promo-btn">Post a request</span>
+                                    </div>
+                                    <div class="tile-grid">
+                                        <div class="tile blue">
+                                            <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.8">
+                                                    <circle cx="11" cy="11" r="7" />
+                                                    <path d="M21 21l-4.3-4.3" />
+                                                </svg></div><span>Worker</span>
+                                        </div>
+                                        <div class="tile orange">
+                                            <div class="t-ico"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.8">
+                                                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                                                </svg></div><span>Errand</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1527,35 +1981,25 @@
         <div class="wrap">
             <div class="footer-grid">
                 <div>
-                    <a href="index.html" class="logo">
-                        <span class="logo-word">Ejersa<small>Tech &amp; Consult</small></span>
-                    </a>
-                    <p class="tag">Technology. Intelligence. Solutions. Turning real-world problems into scalable
-                        digital solutions and actionable business intelligence.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="solutions.html#ecosystem">Digital Ecosystem</a></li>
-                    </ul>
+                    <a href="#" class="logo"><span class="logo-name">Ejersa</span></a>
+                    <p class="tag">Worker Matching, Errand, Rental and Property — one app, run by verified
+                        local agents.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="consulting.html#strategy">Business Strategy</a></li>
-                        <li><a href="consulting.html#development">Business Development</a></li>
-                        <li><a href="consulting.html#technology">Technology Consulting</a></li>
-                        <li><a href="research.html#market">Market Research</a></li>
-                        <li><a href="research.html#competitive">Competitive Intelligence</a></li>
-                        <li><a href="research.html#consumer">Consumer Insights</a></li>
+                        <li><a href="#services">Worker Matching</a></li>
+                        <li><a href="#services">Errand</a></li>
+                        <li><a href="#services">Rental Service</a></li>
+                        <li><a href="#services">Property Marketplace</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="about.html">About Ejersa</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1567,76 +2011,171 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© <span id="year"></span> Ejersa Tech &amp; Consult PLC. All rights reserved.</span>
+                <span>© <span id="year"></span> Ejersa. All rights reserved.</span>
                 <span>Addis Ababa, Ethiopia</span>
             </div>
         </div>
     </footer>
 
-    <button id="to-top" class="to-top" aria-label="Scroll to top">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M12 19V5" />
-            <path d="M5 12l7-7 7 7" />
-        </svg>
-    </button>
-
-    <script src="js/main.js"></script>
     <script>
-        // Hero phone mockup: auto-rotate which service is highlighted.
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // reveal-on-scroll
         (function () {
-            var items = document.querySelectorAll('#phoneServiceList .phone-service-item');
-            if (!items.length) return;
-            var i = 0;
-            setInterval(function () {
-                items[i].classList.remove('active');
-                i = (i + 1) % items.length;
-                items[i].classList.add('active');
-            }, 2200);
+            var els = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+                });
+            }, { threshold: .15 });
+            els.forEach(function (e) { io.observe(e); });
         })();
 
-        // Services dropdown: open ONLY on click of "Services", not on hover.
+        // 1. Hero phone service tab switcher (click + auto-cycle)
         (function () {
-            document.querySelectorAll('.has-dropdown').forEach(function (item) {
-                var trigger = item.querySelector(':scope > a');
-                if (!trigger) return;
+            var tabs = document.querySelectorAll('#heroTabs .svc-tab');
+            var screens = document.querySelectorAll('.phone-content');
+            if (!tabs.length) return;
+            var i = 0, userTouched = false;
 
-                trigger.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    var isOpen = item.classList.contains('open');
-                    // close any other open dropdowns first
-                    document.querySelectorAll('.has-dropdown.open').forEach(function (openItem) {
-                        if (openItem !== item) {
-                            openItem.classList.remove('open');
-                            var t = openItem.querySelector(':scope > a');
-                            if (t) t.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                    item.classList.toggle('open', !isOpen);
-                    trigger.setAttribute('aria-expanded', String(!isOpen));
-                });
+            function activate(idx) {
+                tabs.forEach(function (t) { t.classList.remove('active'); });
+                screens.forEach(function (s) { s.classList.remove('active'); });
+                tabs[idx].classList.add('active');
+                document.getElementById(tabs[idx].getAttribute('data-target')).classList.add('active');
+                i = idx;
+            }
+            tabs.forEach(function (tab, idx) {
+                tab.addEventListener('click', function () { userTouched = true; activate(idx); });
             });
+            setInterval(function () {
+                if (userTouched) return;
+                activate((i + 1) % tabs.length);
+            }, 4200);
+        })();
 
-            // click outside closes any open dropdown
-            document.addEventListener('click', function (e) {
-                document.querySelectorAll('.has-dropdown.open').forEach(function (item) {
-                    if (!item.contains(e.target)) {
-                        item.classList.remove('open');
-                        var t = item.querySelector(':scope > a');
-                        if (t) t.setAttribute('aria-expanded', 'false');
+        // 2. Animated request-status timeline in the "Meaning" section
+        (function () {
+            var list = document.getElementById('meaningStatus');
+            if (!list) return;
+            var rows = list.querySelectorAll('.row');
+            var step = -1;
+
+            function render() {
+                rows.forEach(function (row, idx) {
+                    if (idx <= step) {
+                        row.classList.remove('pending');
+                        row.classList.add('done');
+                    } else {
+                        row.classList.remove('done');
+                        row.classList.add('pending');
+                    }
+                });
+            }
+            function tick() {
+                step++;
+                if (step >= rows.length) {
+                    setTimeout(function () { step = -1; render(); setTimeout(tick, 900); }, 1600);
+                    return;
+                }
+                render();
+                setTimeout(tick, 1500);
+            }
+            var started = false;
+            if ('IntersectionObserver' in window) {
+                var statusIo = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !started) { started = true; tick(); statusIo.disconnect(); }
+                    });
+                }, { threshold: .4 });
+                statusIo.observe(list);
+            } else { tick(); }
+        })();
+
+        // 3. Count-up animation for the "Live Agent Activity" ticker
+        (function () {
+            var list = document.getElementById('tickerList');
+            if (!list) return;
+            var vals = list.querySelectorAll('.val');
+            var done = false;
+
+            function run() {
+                vals.forEach(function (el) {
+                    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+                    var start = 0;
+                    var duration = 900;
+                    var startTime = performance.now();
+                    function frame(now) {
+                        var progress = Math.min((now - startTime) / duration, 1);
+                        var current = Math.round(start + (target - start) * progress);
+                        el.textContent = current + ' active';
+                        if (progress < 1) requestAnimationFrame(frame);
+                    }
+                    requestAnimationFrame(frame);
+                });
+            }
+            if ('IntersectionObserver' in window) {
+                var countIo = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !done) { done = true; run(); countIo.disconnect(); }
+                    });
+                }, { threshold: .4 });
+                countIo.observe(list);
+            } else { run(); }
+        })();
+
+        // 4. FAQ accordion
+        (function () {
+            var items = document.querySelectorAll('.faq-item');
+            items.forEach(function (item) {
+                var q = item.querySelector('.faq-q');
+                var a = item.querySelector('.faq-a');
+                if (item.classList.contains('open')) { a.style.maxHeight = a.scrollHeight + 'px'; }
+                q.addEventListener('click', function () {
+                    var isOpen = item.classList.contains('open');
+                    items.forEach(function (other) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+                        other.querySelector('.faq-a').style.maxHeight = null;
+                    });
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        q.setAttribute('aria-expanded', 'true');
+                        a.style.maxHeight = a.scrollHeight + 'px';
                     }
                 });
             });
+            window.addEventListener('resize', function () {
+                var open = document.querySelector('.faq-item.open .faq-a');
+                if (open) open.style.maxHeight = open.scrollHeight + 'px';
+            });
+        })();
 
-            // escape closes it too
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    document.querySelectorAll('.has-dropdown.open').forEach(function (item) {
-                        item.classList.remove('open');
-                        var t = item.querySelector(':scope > a');
-                        if (t) t.setAttribute('aria-expanded', 'false');
-                    });
+        // 5. Waitlist form validation + success state
+        (function () {
+            var form = document.getElementById('waitlistForm');
+            if (!form) return;
+            var input = document.getElementById('waitlistEmail');
+            var error = document.getElementById('waitlistError');
+            var success = document.getElementById('waitlistSuccess');
+            var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var value = input.value.trim();
+                if (!emailRe.test(value)) {
+                    error.classList.add('show');
+                    input.style.borderColor = 'var(--orange-400)';
+                    return;
                 }
+                error.classList.remove('show');
+                form.classList.add('hidden');
+                success.classList.add('show');
+            });
+            input.addEventListener('input', function () {
+                error.classList.remove('show');
+                input.style.borderColor = '';
             });
         })();
     </script>
